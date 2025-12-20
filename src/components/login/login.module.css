@@ -1,0 +1,44 @@
+body {
+	overflow: hidden;
+}
+
+.loginBtn {
+	font-size: 3rem;
+	padding: 10px 50px;
+	background-color: white;
+	border-radius: 15px;
+	margin-top: 15px;
+}
+
+.loginBtn:hover {
+	background-color: rgb(236, 236, 236);
+}
+
+.loginBtn:active {
+	background-color: rgb(227, 255, 208);
+}
+
+.container {
+	min-height: 50vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.loginInput {
+	margin: 5px;
+	padding: 10px;
+	font-size: 2rem;
+	border: 1px 1px rgba(235, 0, 0, 0.055);
+	border-radius: 5px;
+}
+
+.span {
+	margin-top: 5px;
+}
+
+.heading {
+	font-family: monospace;
+	font-size: 2rem;
+}
