@@ -1,3 +1,4 @@
+import styles from "./chat.module.css";
 import { useState } from "react";
 import ChatInput from "./chatInput.jsx";
 import ChatMessages from "./chatMessages.jsx";
@@ -7,13 +8,13 @@ function Chat() {
 	]);
 
 	return (
-		<>
+		<div className={styles.appContainer}>
+			<ChatMessages chatMessages={chatMessages} />
 			<ChatInput
 				chatMessages={chatMessages}
 				setChatMessages={setChatMessages}
 			/>
-			<ChatMessages chatMessages={chatMessages} />
-		</>
+		</div>
 	);
 }
 export default Chat;

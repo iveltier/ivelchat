@@ -2,3 +2,24 @@
 	width: 50px;
 	border-radius: 40px;
 }
+
+.chatMessageUser {
+	display: flex;
+	justify-content: right;
+	align-items: start;
+}
+
+.chatMessageBot {
+	display: flex;
+	justify-content: left;
+	align-items: start;
+}
+
+.chatMessage {
+	border-radius: 10px;
+	margin: 5px;
+	background-color: lightgrey;
+	min-width: 10vw;
+	max-width: 30vw;
+	padding: 0.5rem 0.75rem;
+}

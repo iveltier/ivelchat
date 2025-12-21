@@ -3,11 +3,15 @@ import user from "../../../assets/cookiemonster.jpg";
 import bot from "../../../assets/walle.jpg";
 function ChatMessage({ message, sender }) {
 	return (
-		<div>
+		<div
+			className={
+				sender === "user" ? styles.chatMessageUser : styles.chatMessageBot
+			}
+		>
 			{sender === "bot" && (
 				<img src={bot} className={styles.profilePicture} alt="chatbot" />
 			)}
-			{message}
+			<div className={styles.chatMessage}>{message}</div>
 			{sender === "user" && (
 				<img src={user} className={styles.profilePicture} alt="user" />
 			)}

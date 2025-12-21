@@ -1,0 +1,24 @@
+.sendButton {
+	background-color: lightgreen;
+	padding: 0.5rem 1rem;
+	border-radius: 10px;
+	margin-left: 0.15rem;
+	border: 1px solid black;
+	font-size: 1.5rem;
+	cursor: pointer;
+}
+
+.sendButton:hover {
+	background-color: #90dd7aff;
+}
+
+.messageInput {
+	border-radius: 10px;
+	flex-grow: 1;
+	font-size: 1.5rem;
+	padding: 0.5rem;
+}
+
+.messageInputContainer {
+	display: flex;
+}

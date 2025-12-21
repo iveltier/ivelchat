@@ -1,3 +1,4 @@
+import styles from "./chatInput.module.css";
 import { getBotResponse } from "./chatBotRespones/chatBot.js";
 import { useState } from "react";
 function ChatInput({ chatMessages, setChatMessages }) {
@@ -19,17 +20,18 @@ function ChatInput({ chatMessages, setChatMessages }) {
 		setInputText("");
 	}
 	return (
-		<>
+		<div className={styles.messageInputContainer}>
 			<input
 				type="text"
 				onChange={saveInputText}
 				value={inputText}
+				className={styles.messageInput}
 				placeholder="Send message to Chatbot"
 			></input>
-			<button type="button" onClick={sendMessage}>
+			<button type="button" onClick={sendMessage} className={styles.sendButton}>
 				Send
 			</button>
-		</>
+		</div>
 	);
 }
 export default ChatInput;
