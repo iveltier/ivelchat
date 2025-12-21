@@ -10,4 +10,4 @@
 - send button picture
 - time stamp
 - mehr actions
-
+- auto scroll
