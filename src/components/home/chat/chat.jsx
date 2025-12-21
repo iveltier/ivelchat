@@ -2,7 +2,7 @@ import { useState } from "react";
 import ChatInput from "./chatInput.jsx";
 import ChatMessages from "./chatMessages.jsx";
 function Chat() {
-	const [chatMessages, setChatmessages] = useState([
+	const [chatMessages, setChatMessages] = useState([
 		{ message: "Hello, how can I help you?", sender: "bot", id: "id1" },
 	]);
 
@@ -10,7 +10,7 @@ function Chat() {
 		<>
 			<ChatInput
 				chatMessages={chatMessages}
-				setChatmessages={setChatmessages}
+				setChatMessages={setChatMessages}
 			/>
 			<ChatMessages chatMessages={chatMessages} />
 		</>
