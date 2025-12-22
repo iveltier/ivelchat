@@ -12,3 +12,6 @@
 - chatverläufe
 - css styling chat / kontakte
 - spam schutz
+
+# source
+https://raw.githubusercontent.com/sindresorhus/cli-spinners/master/spinners.json
