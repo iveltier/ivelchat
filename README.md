@@ -1,13 +1,14 @@
 # Todo
 
-- position chat
 - settings page
-- kontakte / neue bots
+- neue bots
 - color scheme / css global colors
 - logo
 - profile picture 
-- loader
+- specific loader for every bot / choose best ones
 - send button picture
 - time stamp
 - mehr actions
-- auto scroll
+- chatverläufe
+- css styling chat / kontakte
+- spam schutz

@@ -1,3 +1,7 @@
-body {
-	margin: 0;
+.homeWrapper {
+	display: flex;
+	flex-direction: row;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 }

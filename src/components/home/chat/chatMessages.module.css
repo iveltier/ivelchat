@@ -2,4 +2,10 @@
 	flex-grow: 1;
 	overflow: scroll;
 	scrollbar-width: none;
+	display: flex;
+	flex-direction: column;
+}
+
+.pushContainer {
+	flex-grow: 1;
 }

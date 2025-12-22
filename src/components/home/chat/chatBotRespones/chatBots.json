@@ -1,0 +1,28 @@
+{
+	"bots": {
+		"simpleChatbot": {
+			"responses": {
+				"hello": "Hello",
+				"coinflip": {
+					"action": "flipCoin"
+				},
+				"default": "Sorry, I'm just a stupid chatbot"
+			}
+		},
+		"simpleChatbot2": {
+			"responses": {
+				"hello": "Hello"
+			}
+		},
+		"simpleChatbot3": {
+			"responses": {
+				"hello": "Hello"
+			}
+		},
+		"simpleChatbot4": {
+			"responses": {
+				"hello": "Hello"
+			}
+		}
+	}
+}

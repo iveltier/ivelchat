@@ -1,0 +1,10 @@
+.menuContainer {
+	background-color: lightgrey;
+	width: 20vw;
+}
+
+.botList {
+	flex-grow: 1;
+	overflow: scroll;
+	scrollbar-width: none;
+}
