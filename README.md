@@ -2,7 +2,7 @@
 
 - settings page
 - neue bots
-- color scheme / css global colors => settings page
+- color scheme / css global colors
 - logo
 - profile picture 
 - specific loader for every bot / choose best ones
