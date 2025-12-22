@@ -17,6 +17,7 @@
 
 .chatMessage {
 	border-radius: 10px;
+	font-family: monospace;
 	margin: 5px;
 	background-color: lightgrey;
 	min-width: 10vw;

@@ -5,7 +5,11 @@ import ChatMessages from "./chatMessages.jsx";
 
 function Chat() {
 	const [chatMessages, setChatMessages] = useState([
-		{ message: "Hello, how can I help you?", sender: "bot", id: "id1" },
+		{
+			message: "Hello, how can I help you? I can flip a coin, if you want.",
+			sender: "bot",
+			id: "id1",
+		},
 	]);
 
 	return (
