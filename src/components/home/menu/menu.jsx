@@ -10,6 +10,8 @@ function Menu({
 	setBotsMessages,
 	chatMessages,
 	setChatMessages,
+	currentBot,
+	setCurrentBot,
 }) {
 	const [botList, setBotList] = useState([{ name: "simpleChatbot" }]);
 	const [searchText, setSearchText] = useState("");
@@ -64,9 +66,6 @@ function Menu({
 	const filteredBots = botList.filter(
 		(bot) => bot.name.toLowerCase().includes(searchText), // handleSearch() provides searchText
 	);
-
-	// set the current bot | default: first bot
-	const [currentBot, setCurrentBot] = useState(availableBotNames[0] ?? null);
 
 	function selectBot(newBot) {
 		if (!newBot || newBot === currentBot) return;

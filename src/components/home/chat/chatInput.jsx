@@ -1,8 +1,9 @@
 import spinners from "./spinner.json";
 import styles from "./chatInput.module.css";
 import { getBotResponse } from "./chatBotRespones/chatBot.js";
+import chatBots from "./chatBotRespones/chatBots.json";
 import { useState } from "react";
-function ChatInput({ chatMessages, setChatMessages }) {
+function ChatInput({ chatMessages, setChatMessages, currentBot }) {
 	const [inputText, setInputText] = useState("");
 	function saveInputText(event) {
 		setInputText(event.target.value);
@@ -13,6 +14,10 @@ function ChatInput({ chatMessages, setChatMessages }) {
 			return;
 		}
 
+		// get bot profile picture
+		const botProfilePicture = chatBots.bots[currentBot].profilePicture;
+
+		// get new user chat message
 		const newChatMessages = [
 			...chatMessages,
 			{ message: inputText, sender: "user", id: crypto.randomUUID() },
@@ -33,6 +38,7 @@ function ChatInput({ chatMessages, setChatMessages }) {
 			sender: "bot",
 			isSpinner: true,
 			spinnerData,
+			profilePicture: botProfilePicture,
 		};
 		setChatMessages((prev) => [...prev, spinnerMessage]);
 
@@ -46,7 +52,12 @@ function ChatInput({ chatMessages, setChatMessages }) {
 
 		setChatMessages([
 			...newChatMessages,
-			{ message: response, sender: "bot", id: crypto.randomUUID() },
+			{
+				message: response,
+				sender: "bot",
+				id: crypto.randomUUID(),
+				profilePicture: botProfilePicture,
+			},
 		]);
 	}
 	function handleOnKeyDown(event) {

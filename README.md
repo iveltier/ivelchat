@@ -9,7 +9,7 @@
 - send button picture
 - time stamp
 - mehr actions
-- chatverläufe
+- persitence
 - css styling chat / kontakte
 - spam schutz
 

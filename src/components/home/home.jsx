@@ -11,8 +11,14 @@ function Home() {
 		const init = {};
 		availableBotNames.forEach((name) => {
 			const startMsg = chatBots.bots[name].responses.start;
+			const profilePicture = chatBots.bots[name].profilePicture;
 			init[name] = [
-				{ id: crypto.randomUUID(), sender: "bot", message: startMsg },
+				{
+					id: crypto.randomUUID(),
+					sender: "bot",
+					message: startMsg,
+					profilePicture: profilePicture,
+				},
 			];
 		});
 		return init;
@@ -20,6 +26,8 @@ function Home() {
 	const [chatMessages, setChatMessages] = useState(
 		botsMessages[availableBotNames[0]] ?? [],
 	);
+	// set the current bot | default: first bot
+	const [currentBot, setCurrentBot] = useState(availableBotNames[0] ?? null);
 	return (
 		<div className={styles.homeWrapper}>
 			<Menu
@@ -27,8 +35,14 @@ function Home() {
 				setBotsMessages={setBotsMessages}
 				chatMessages={chatMessages}
 				setChatMessages={setChatMessages}
+				currentBot={currentBot}
+				setCurrentBot={setCurrentBot}
 			/>
-			<Chat chatMessages={chatMessages} setChatMessages={setChatMessages} />
+			<Chat
+				chatMessages={chatMessages}
+				setChatMessages={setChatMessages}
+				currentBot={currentBot}
+			/>
 		</div>
 	);
 }

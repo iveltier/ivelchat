@@ -17,6 +17,7 @@ function ChatMessages({ chatMessages }) {
 					<ChatMessage
 						message={chatMessage.message}
 						sender={chatMessage.sender}
+						profilePicture={chatMessage.profilePicture}
 						isSpinner={chatMessage.isSpinner}
 						spinnerData={chatMessage.spinnerData}
 						key={chatMessage.id}

@@ -1,8 +1,14 @@
 import styles from "./chatMessage.module.css";
 import user from "../../../assets/cookiemonster.jpg";
-import bot from "../../../assets/walle.jpg";
 import Spinner from "./spinner.jsx";
-function ChatMessage({ message, sender, isSpinner, spinnerData }) {
+function ChatMessage({
+	message,
+	sender,
+	profilePicture,
+	isSpinner,
+	spinnerData,
+}) {
+	const profilePictureSrc = `/images/profilePictures/${profilePicture}`;
 	if (isSpinner) {
 		return (
 			<div
@@ -11,7 +17,11 @@ function ChatMessage({ message, sender, isSpinner, spinnerData }) {
 				}
 			>
 				{sender === "bot" && (
-					<img src={bot} className={styles.profilePicture} alt="chatbot" />
+					<img
+						src={profilePictureSrc}
+						className={styles.profilePicture}
+						alt="chatbot"
+					/>
 				)}
 				<div className={styles.chatMessage}>
 					<Spinner
@@ -29,7 +39,11 @@ function ChatMessage({ message, sender, isSpinner, spinnerData }) {
 			}
 		>
 			{sender === "bot" && (
-				<img src={bot} className={styles.profilePicture} alt="chatbot" />
+				<img
+					src={profilePictureSrc}
+					className={styles.profilePicture}
+					alt="chatbot"
+				/>
 			)}
 			<div className={styles.chatMessage}>{message}</div>
 			{sender === "user" && (
