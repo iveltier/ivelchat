@@ -66,6 +66,8 @@ function Menu() {
 		<div className={styles.menuContainer}>
 			<input
 				ref={inputRef}
+				name="input"
+				className={styles.chatBotInput}
 				type="text"
 				placeholder={isAdding ? "Add a new bot..." : "Search"}
 				value={isAdding ? newBotName : searchText}
@@ -76,15 +78,20 @@ function Menu() {
 				onKeyDown={handleKeyDown}
 			/>
 
-			<button type="button" onClick={handleNewBot}>
+			<button
+				type="button"
+				onClick={handleNewBot}
+				className={styles.chatBotAddBtn}
+			>
 				+
 			</button>
 
-			<ul>
+			<ul className={styles.chatBotList}>
 				{isAdding
 					? filteredAvailableBots.map((bot) => (
 						<li
 							key={bot}
+							className={styles.chatBotListItem}
 							onClick={() => {
 								setBotList([...botList, { name: bot }]);
 								setIsAdding(false);
@@ -95,7 +102,11 @@ function Menu() {
 							{bot}
 						</li>
 					))
-					: filteredBots.map((bot) => <li key={bot.name}>{bot.name}</li>)}
+					: filteredBots.map((bot) => (
+						<li key={bot.name} className={styles.chatBotListItem}>
+							{bot.name}
+						</li>
+					))}
 			</ul>
 		</div>
 	);
