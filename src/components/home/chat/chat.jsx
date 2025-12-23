@@ -1,17 +1,8 @@
 import styles from "./chat.module.css";
-import { useState } from "react";
 import ChatInput from "./chatInput.jsx";
 import ChatMessages from "./chatMessages.jsx";
 
-function Chat() {
-	const [chatMessages, setChatMessages] = useState([
-		{
-			message: "Hello, how can I help you? I can flip a coin, if you want.",
-			sender: "bot",
-			id: "id1",
-		},
-	]);
-
+function Chat({ chatMessages, setChatMessages }) {
 	return (
 		<div className={`${styles.appContainer} ${styles.fadeOverlay}`}>
 			<ChatMessages chatMessages={chatMessages} />

@@ -3,6 +3,7 @@
 		"simpleChatbot": {
 			"responses": {
 				"hello": "Hello",
+				"start": "Hello, I'm stupid",
 				"coinflip": {
 					"action": "flipCoin"
 				},
@@ -14,17 +15,20 @@
 		},
 		"simpleChatbot2": {
 			"responses": {
-				"hello": "Hello"
+				"start": "Hello, I'm stupid two",
+				"hello": "Hello im 2"
 			}
 		},
 		"simpleChatbot3": {
 			"responses": {
-				"hello": "Hello"
+				"start": "fuck you",
+				"hello": "Hello im 3"
 			}
 		},
 		"simpleChatbot4": {
 			"responses": {
-				"hello": "Hello"
+				"start": "Bye",
+				"hello": "Hello im 4"
 			}
 		}
 	}

@@ -5,8 +5,13 @@
 import { useState, useRef } from "react";
 import styles from "./menu.module.css";
 import chatBots from "../chat/chatBotRespones/chatBots.json";
-function Menu() {
-	const [botList, setBotList] = useState([{ name: "simpleBot" }]);
+function Menu({
+	availableBotNames,
+	setBotsMessages,
+	chatMessages,
+	setChatMessages,
+}) {
+	const [botList, setBotList] = useState([{ name: "simpleChatbot" }]);
 	const [searchText, setSearchText] = useState("");
 	const [isAdding, setIsAdding] = useState(false);
 	const [newBotName, setNewBotName] = useState("");
@@ -49,8 +54,6 @@ function Menu() {
 			setSearchText("");
 		}
 	}
-	// get the available bot names from JSON
-	const availableBotNames = Object.keys(chatBots.bots);
 
 	// filter for available bots and show bots, who havent been added yet
 	const filteredAvailableBots = availableBotNames
@@ -61,6 +64,23 @@ function Menu() {
 	const filteredBots = botList.filter(
 		(bot) => bot.name.toLowerCase().includes(searchText), // handleSearch() provides searchText
 	);
+
+	// set the current bot | default: first bot
+	const [currentBot, setCurrentBot] = useState(availableBotNames[0] ?? null);
+
+	function selectBot(newBot) {
+		if (!newBot || newBot === currentBot) return;
+
+		setBotsMessages((prev) => {
+			const updated = {
+				...prev,
+				[currentBot]: chatMessages,
+			};
+			setChatMessages(updated[newBot] ?? []);
+			setCurrentBot(newBot);
+			return updated;
+		});
+	}
 
 	return (
 		<div className={styles.menuContainer}>
@@ -103,7 +123,13 @@ function Menu() {
 						</li>
 					))
 					: filteredBots.map((bot) => (
-						<li key={bot.name} className={styles.chatBotListItem}>
+						<li
+							key={bot.name}
+							onClick={() => {
+								selectBot(bot.name);
+							}}
+							className={styles.chatBotListItem}
+						>
 							{bot.name}
 						</li>
 					))}
