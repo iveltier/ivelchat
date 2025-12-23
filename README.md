@@ -2,7 +2,7 @@
 
 ## inhalte
 - inhalte
-- neue bots
+- neue bots (z.b poet)
 - mehr actions
 ## styling
 - color scheme / css global colors
