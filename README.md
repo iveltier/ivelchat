@@ -15,7 +15,6 @@
 
 ## javascript
 - settings page
-- time stamp
 - persistence
 - spam schutz
 
