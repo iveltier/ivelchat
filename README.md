@@ -14,6 +14,7 @@
 - login / register stylen
 
 ## javascript
+- logo
 - settings page
 - persistence
 - spam schutz
