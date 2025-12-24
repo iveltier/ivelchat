@@ -9,6 +9,7 @@ function ChatMessage({
 	spinnerData,
 }) {
 	const profilePictureSrc = `/images/profilePictures/${profilePicture}`;
+	const currentTime = new Date();
 	if (isSpinner) {
 		return (
 			<div
@@ -45,7 +46,12 @@ function ChatMessage({
 					alt="chatbot"
 				/>
 			)}
-			<div className={styles.chatMessage}>{message}</div>
+			<div className={styles.chatMessage}>
+				<p>{message}</p>
+				<span className={styles.timeStap}>
+					{`${currentTime.toLocaleString("de-DE", { hour12: false })}`}
+				</span>
+			</div>
 			{sender === "user" && (
 				<img src={user} className={styles.profilePicture} alt="user" />
 			)}
@@ -53,3 +59,6 @@ function ChatMessage({
 	);
 }
 export default ChatMessage;
+//{
+//	`${currentTime.getHours()}:${currentTime.getMinutes()}:${currentTime.getSeconds()}`;
+//}
