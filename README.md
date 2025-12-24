@@ -2,7 +2,7 @@
 
 ## inhalte
 
-- neue bots (z.b poet, erklärbär)
+- neue bots (z.b poet, erklärbär, zufallsachen)
 - mehr actions
 
 ## styling
