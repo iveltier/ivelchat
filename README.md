@@ -1,7 +1,8 @@
 # Todo
 
 ## inhalte
-- neue bots (z.b poet)
+
+- neue bots (z.b poet, erklärbär)
 - mehr actions
 
 ## styling
@@ -10,9 +11,10 @@
 - css styling chat / kontakte
 - chat übergangg überarbeiten
 - send button picture
+- login / register stylen
+
 ## javascript
 - settings page
-- specific spinner for every bot / choose best ones
 - time stamp
 - persistence
 - spam schutz
