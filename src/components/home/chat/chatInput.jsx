@@ -28,8 +28,7 @@ function ChatInput({ chatMessages, setChatMessages, currentBot }) {
 		// choose spinner
 
 		const spinnerKeys = Object.keys(spinners);
-		const randomKey =
-			spinnerKeys[Math.floor(Math.random() * spinnerKeys.length)];
+		const randomKey = spinnerKeys[chatBots.bots[currentBot].spinnerKey];
 		const spinnerData = spinners[randomKey];
 
 		// show spinner

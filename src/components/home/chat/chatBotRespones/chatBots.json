@@ -12,28 +12,32 @@
 				"help": "cant help you",
 				"default": "Sorry, I'm just a stupid chatbot"
 			},
-			"profilePicture": "walle.jpg"
+			"profilePicture": "walle.jpg",
+			"spinnerKey": 12
 		},
 		"simpleChatbot2": {
 			"responses": {
 				"start": "Hello, I'm stupid two",
 				"hello": "Hello im 2"
 			},
-			"profilePicture": "smokeCat.jpg"
+			"profilePicture": "smokeCat.jpg",
+			"spinnerKey": 40
 		},
 		"simpleChatbot3": {
 			"responses": {
 				"start": "fuck you",
 				"hello": "Hello im 3"
 			},
-			"profilePicture": "basedCat.jpg"
+			"profilePicture": "basedCat.jpg",
+			"spinnerKey": 9
 		},
 		"simpleChatbot4": {
 			"responses": {
 				"start": "Bye",
 				"hello": "Hello im 4"
 			},
-			"profilePicture": "antifa.svg"
+			"profilePicture": "antifa.svg",
+			"spinnerKey": 30
 		}
 	}
 }
