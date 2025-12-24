@@ -18,6 +18,7 @@ function Home() {
 					sender: "bot",
 					message: startMsg,
 					profilePicture: profilePicture,
+					timestamp: new Date(),
 				},
 			];
 		});

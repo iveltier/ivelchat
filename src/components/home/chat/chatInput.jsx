@@ -20,7 +20,12 @@ function ChatInput({ chatMessages, setChatMessages, currentBot }) {
 		// get new user chat message
 		const newChatMessages = [
 			...chatMessages,
-			{ message: inputText, sender: "user", id: crypto.randomUUID() },
+			{
+				message: inputText,
+				sender: "user",
+				id: crypto.randomUUID(),
+				timestamp: new Date(),
+			},
 		];
 		setChatMessages(newChatMessages);
 
@@ -56,6 +61,7 @@ function ChatInput({ chatMessages, setChatMessages, currentBot }) {
 				sender: "bot",
 				id: crypto.randomUUID(),
 				profilePicture: botProfilePicture,
+				timestamp: new Date(),
 			},
 		]);
 	}

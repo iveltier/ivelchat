@@ -21,6 +21,7 @@ function ChatMessages({ chatMessages }) {
 						isSpinner={chatMessage.isSpinner}
 						spinnerData={chatMessage.spinnerData}
 						key={chatMessage.id}
+						timestamp={chatMessage.timestamp}
 					/>
 				);
 			})}
