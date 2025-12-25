@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Logo from "./logo/logo.jsx";
 import Chat from "./chat/chat.jsx";
 import styles from "./home.module.css";
 import Menu from "./menu/menu.jsx";
@@ -30,21 +31,24 @@ function Home() {
 	// set the current bot | default: first bot
 	const [currentBot, setCurrentBot] = useState(availableBotNames[0] ?? null);
 	return (
-		<div className={styles.homeWrapper}>
-			<Menu
-				availableBotNames={availableBotNames}
-				setBotsMessages={setBotsMessages}
-				chatMessages={chatMessages}
-				setChatMessages={setChatMessages}
-				currentBot={currentBot}
-				setCurrentBot={setCurrentBot}
-			/>
-			<Chat
-				chatMessages={chatMessages}
-				setChatMessages={setChatMessages}
-				currentBot={currentBot}
-			/>
-		</div>
+		<>
+			<Logo />
+			<div className={styles.homeWrapper}>
+				<Menu
+					availableBotNames={availableBotNames}
+					setBotsMessages={setBotsMessages}
+					chatMessages={chatMessages}
+					setChatMessages={setChatMessages}
+					currentBot={currentBot}
+					setCurrentBot={setCurrentBot}
+				/>
+				<Chat
+					chatMessages={chatMessages}
+					setChatMessages={setChatMessages}
+					currentBot={currentBot}
+				/>
+			</div>
+		</>
 	);
 }
 export default Home;

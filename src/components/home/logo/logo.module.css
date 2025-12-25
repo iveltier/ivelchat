@@ -1,0 +1,20 @@
+.logo {
+	font-family: monospace;
+	font-size: 1rem;
+	font-weight: bold;
+	line-height: 1.1;
+	color: cornflowerblue;
+	margin: 0;
+	padding: 0;
+	white-space: pre;
+	height: 18vh;
+	display: flex;
+	align-items: center;
+	justify-content: left;
+}
+
+@media (prefers-color-scheme: dark) {
+	.logo {
+		--logo-color: dark;
+	}
+}
