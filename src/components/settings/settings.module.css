@@ -1,0 +1,47 @@
+h1 {
+	font-family: monospace;
+	text-align: center;
+	font-size: 2rem;
+}
+
+.settingsContainer {
+	margin: auto;
+	height: 100vh;
+	width: 80vw;
+}
+
+.settingsTable {
+	width: 100%;
+}
+
+.settingsTable,
+.settingsTable td {
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+
+.settingsWrapper {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+.currentUserPicture {
+	width: 300px;
+	height: 300px;
+	border-radius: 500px;
+	margin: 1rem 12rem 0 5rem;
+}
+
+.profileInfo {
+	font-weight: bold;
+	font-size: 1.5rem;
+	margin-top: 0.5rem;
+}
+
+.changeProfilePictureWindow {
+	position: absolute;
+	width: 30vw;
+	height: 50vh;
+	background-color: #80808080;
+}

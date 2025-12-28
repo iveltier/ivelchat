@@ -1,5 +1,5 @@
 import styles from "./chatMessage.module.css";
-import user from "../../../assets/cookiemonster.jpg";
+import user from "../../../../public/images/profilePictures/user/cookiemonster.jpg";
 import Spinner from "./spinner.jsx";
 function ChatMessage({
 	message,
@@ -9,7 +9,7 @@ function ChatMessage({
 	spinnerData,
 	timestamp,
 }) {
-	const profilePictureSrc = `/images/profilePictures/${profilePicture}`;
+	const profilePictureSrc = `/images/profilePictures/bots/${profilePicture}`;
 	if (isSpinner) {
 		return (
 			<div

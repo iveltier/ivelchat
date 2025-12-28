@@ -1,3 +1,4 @@
+import SettingsLogo from "./settingslogo/settingsLogo.jsx";
 import { useState } from "react";
 import Logo from "./logo/logo.jsx";
 import Chat from "./chat/chat.jsx";
@@ -32,6 +33,7 @@ function Home() {
 	const [currentBot, setCurrentBot] = useState(availableBotNames[0] ?? null);
 	return (
 		<>
+			<SettingsLogo />
 			<Logo />
 			<div className={styles.homeWrapper}>
 				<Menu
