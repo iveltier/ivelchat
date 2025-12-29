@@ -12,6 +12,7 @@
 - chat übergangg überarbeiten
 - send button picture
 - login / register stylen
+- responsive design
 
 ## javascript
 - settings page
