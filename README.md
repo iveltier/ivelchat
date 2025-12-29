@@ -15,6 +15,7 @@
 - responsive design
 
 ## javascript
+- statisch exportieren
 - settings page
 - link to home page from settings
 - change Profile picture => globale settings variablen machen
