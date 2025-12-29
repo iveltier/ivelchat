@@ -1,5 +1,4 @@
 import styles from "./chatMessage.module.css";
-import user from "../../../../public/images/profilePictures/user/cookiemonster.jpg";
 import Spinner from "./spinner.jsx";
 function ChatMessage({
 	message,
@@ -53,7 +52,11 @@ function ChatMessage({
 				</span>
 			</div>
 			{sender === "user" && (
-				<img src={user} className={styles.profilePicture} alt="user" />
+				<img
+					src="/images/profilePictures/user/cookiemonster.jpg"
+					className={styles.profilePicture}
+					alt="user"
+				/>
 			)}
 		</div>
 	);
