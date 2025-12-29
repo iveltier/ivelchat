@@ -3,9 +3,11 @@ import Logo from "../home/logo/logo.jsx";
 import { useState, useEffect } from "react";
 
 function Settings() {
+	const profilePicturesSrc = "/images/profilePictures/user/";
 	const [currentUserPicture, setCurrentUserPicture] = useState(
 		"/images/profilePictures/user/cookiemonster.jpg",
 	);
+	const [visible, setVisible] = useState(false);
 
 	const [time, setTime] = useState(new Date());
 
@@ -18,63 +20,66 @@ function Settings() {
 	}, []);
 
 	function handleProfilePictureSrc(name) {
-		return `/images/profilePictures/user/${name}`;
+		return profilePicturesSrc + name;
 	}
+
+	// esc to close
+	useEffect(() => {
+		const handleEsc = (event) => {
+			if (event.key === "Escape") {
+				setVisible(false);
+			}
+		};
+		window.addEventListener("keydown", handleEsc);
+
+		return () => {
+			window.removeEventListener("keydown", handleEsc);
+		};
+	}, []);
 
 	return (
 		<div className={styles.settingsContainer}>
 			<Logo />
 
 			<h1>Settings</h1>
-			<div className={styles.changeProfilePictureWindow}>
-				<h2>Change your profile picture</h2>
-				<div className={styles.profilePicturesWrapper}>
-					<img
-						src={handleProfilePictureSrc("cookiemonster.jpg")}
-						className={styles.profilePictures}
-					/>
-					<img
-						src={handleProfilePictureSrc("elmo.jpg")}
-						className={styles.profilePictures}
-					/>
-					<img
-						src={handleProfilePictureSrc("peter.jpg")}
-						className={styles.profilePictures}
-					/>
-					<img
-						src={handleProfilePictureSrc("killua.jpg")}
-						className={styles.profilePictures}
-					/>
-					<img
-						src={handleProfilePictureSrc("patrick.jpg")}
-						className={styles.profilePictures}
-					/>
-					<img
-						src={handleProfilePictureSrc("sandmann.jpeg")}
-						className={styles.profilePictures}
-					/>
-					<img
-						src={handleProfilePictureSrc("ernie.jpg")}
-						className={styles.profilePictures}
-					/>
-					<img
-						src={handleProfilePictureSrc("kadse.jpg")}
-						className={styles.profilePictures}
-					/>
-					<img
-						src={handleProfilePictureSrc("cute.jpg")}
-						className={styles.profilePictures}
-					/>
-					<img
-						src={handleProfilePictureSrc("default.jpg")}
-						className={styles.profilePictures}
-					/>
+			{visible && (
+				<div className={styles.changeProfilePictureWindow}>
+					<h2>Change your profile picture</h2>
+					<div className={styles.profilePicturesWrapper}>
+						{[
+							"cookiemonster.jpg",
+							"elmo.jpg",
+							"peter.jpg",
+							"killua.jpg",
+							"patrick.jpg",
+							"sandmann.jpeg",
+							"ernie.jpg",
+							"kadse.jpg",
+							"cute.jpg",
+							"default.jpg",
+						].map((file) => (
+							<img
+								key={file}
+								alt={file}
+								src={handleProfilePictureSrc(file)}
+								className={styles.profilePictures}
+								onClick={() => {
+									setCurrentUserPicture(handleProfilePictureSrc(file));
+									setVisible(false);
+								}}
+							/>
+						))}
+					</div>
 				</div>
-			</div>
+			)}
 			<div className={styles.settingsWrapper}>
 				<div>
 					<img src={currentUserPicture} className={styles.currentUserPicture} />
-					<button type="button" className={styles.changeProfilePictureButton}>
+					<button
+						type="button"
+						className={styles.changeProfilePictureButton}
+						onClick={() => setVisible(true)}
+					>
 						CHANGE PROFILE PICTURE
 					</button>
 					<p className={styles.profileInfo}>Guest</p>
