@@ -4,6 +4,11 @@ h1 {
 	font-size: 2rem;
 }
 
+h2 {
+	text-align: center;
+	color: white;
+}
+
 .settingsContainer {
 	margin: auto;
 	height: 100vh;
@@ -41,7 +46,30 @@ h1 {
 
 .changeProfilePictureWindow {
 	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
 	width: 30vw;
-	height: 50vh;
-	background-color: #80808080;
+	height: 55vh;
+	background-color: #808080e6;
+	border: 3px solid lightgray;
+	border-radius: 15px;
+}
+
+.profilePicturesWrapper {
+	text-align: center;
+}
+
+.profilePictures {
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	margin: 1rem;
+	transition: transform 0.2s;
+}
+
+.profilePictures:hover {
+	transform: scale(1.2);
 }
