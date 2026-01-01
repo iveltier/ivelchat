@@ -7,6 +7,7 @@ function ChatMessage({
 	isSpinner,
 	spinnerData,
 	timestamp,
+	isMonospace,
 }) {
 	const profilePictureSrc = `/images/profilePictures/bots/${profilePicture}`;
 	if (isSpinner) {
@@ -23,7 +24,9 @@ function ChatMessage({
 						alt="chatbot"
 					/>
 				)}
-				<div className={styles.chatMessage}>
+				<div
+					className={`${styles.chatMessage} ${isMonospace ? styles.monospace : ""}`}
+				>
 					<Spinner
 						frames={spinnerData.frames}
 						interval={spinnerData.interval}
@@ -45,7 +48,9 @@ function ChatMessage({
 					alt="chatbot"
 				/>
 			)}
-			<div className={styles.chatMessage}>
+			<div
+				className={`${styles.chatMessage} ${isMonospace ? styles.monospace : ""}`}
+			>
 				<p>{message}</p>
 				<span className={styles.timeStap}>
 					{timestamp?.toLocaleString("de-DE", { hour12: false })}

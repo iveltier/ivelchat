@@ -1,8 +1,17 @@
 import styles from "./settings.module.css";
 import Logo from "../home/logo/logo.jsx";
 import { useState, useEffect } from "react";
+import { generatePalette, applyPaletteToCSS } from "./colorHelper.jsx";
 
-function Settings() {
+function Settings({ setIsMonospace }) {
+	const [baseColor, setBaseColor] = useState("#FFFFFF");
+	const [palette, setPalette] = useState([]);
+
+	useEffect(() => {
+		const newPalette = generatePalette(baseColor);
+		setPalette(newPalette);
+		applyPaletteToCSS(palette);
+	}, [baseColor]);
 	const profilePicturesSrc = "/images/profilePictures/user/";
 	const [currentUserPicture, setCurrentUserPicture] = useState(
 		"/images/profilePictures/user/cookiemonster.jpg",
@@ -37,6 +46,9 @@ function Settings() {
 		};
 	}, []);
 
+	function handleMonospace(e) {
+		setIsMonospace(e.target.checked);
+	}
 	return (
 		<div className={styles.settingsContainer}>
 			<Logo />
@@ -98,19 +110,46 @@ function Settings() {
 					<tbody>
 						<tr>
 							<td>Color Scheme</td>
-							<td></td>
+							<td>
+								<input
+									type="color"
+									value={baseColor}
+									onChange={(e) => {
+										setBaseColor(e.target.value);
+									}}
+								/>
+							</td>
 						</tr>
 						<tr>
 							<td>Timestamps</td>
-							<td></td>
+							<td>
+								<label className={styles.switch}>
+									<input type="checkbox" className={styles.checkBox} />
+									<span className={styles.slider}></span>
+								</label>
+							</td>
 						</tr>
 						<tr>
 							<td>Monospace</td>
-							<td></td>
+							<td>
+								<label className={styles.switch}>
+									<input
+										type="checkbox"
+										className={styles.checkBox}
+										onChange={handleMonospace}
+									/>
+									<span className={styles.slider}></span>
+								</label>
+							</td>
 						</tr>
 						<tr>
 							<td>24h Format</td>
-							<td></td>
+							<td>
+								<label className={styles.switch}>
+									<input type="checkbox" className={styles.checkBox} />
+									<span className={styles.slider}></span>
+								</label>
+							</td>
 						</tr>
 					</tbody>
 				</table>

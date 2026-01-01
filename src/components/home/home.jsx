@@ -5,7 +5,7 @@ import Chat from "./chat/chat.jsx";
 import styles from "./home.module.css";
 import Menu from "./menu/menu.jsx";
 import chatBots from "./chat/chatBotRespones/chatBots.json";
-function Home() {
+function Home({ isMonospace }) {
 	// get the available bot names from JSON
 	const availableBotNames = Object.keys(chatBots.bots);
 	// object {botName : [messages: "..."]}
@@ -48,6 +48,7 @@ function Home() {
 					chatMessages={chatMessages}
 					setChatMessages={setChatMessages}
 					currentBot={currentBot}
+					isMonospace={isMonospace}
 				/>
 			</div>
 		</>

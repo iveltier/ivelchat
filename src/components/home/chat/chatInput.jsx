@@ -3,7 +3,7 @@ import styles from "./chatInput.module.css";
 import { getBotResponse } from "./chatBotRespones/chatBot.js";
 import chatBots from "./chatBotRespones/chatBots.json";
 import { useState } from "react";
-function ChatInput({ chatMessages, setChatMessages, currentBot }) {
+function ChatInput({ chatMessages, setChatMessages, currentBot, isMonospace }) {
 	const [inputText, setInputText] = useState("");
 	function saveInputText(event) {
 		setInputText(event.target.value);
@@ -43,6 +43,7 @@ function ChatInput({ chatMessages, setChatMessages, currentBot }) {
 			isSpinner: true,
 			spinnerData,
 			profilePicture: botProfilePicture,
+			isMonospace: isMonospace,
 		};
 		setChatMessages((prev) => [...prev, spinnerMessage]);
 
@@ -62,6 +63,7 @@ function ChatInput({ chatMessages, setChatMessages, currentBot }) {
 				id: crypto.randomUUID(),
 				profilePicture: botProfilePicture,
 				timestamp: new Date(),
+				isMonospace: isMonospace,
 			},
 		]);
 	}

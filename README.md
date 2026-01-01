@@ -16,6 +16,7 @@
 
 ## javascript
 - statisch exportieren
+- exports ändern
 - settings page
 - link to home page from settings
 - change Profile picture => globale settings variablen machen

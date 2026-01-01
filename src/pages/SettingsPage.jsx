@@ -1,9 +1,5 @@
 import Settings from "../components/settings/settings.jsx";
-function SettingsPage() {
-	return (
-		<Settings />
-	);
+function SettingsPage({ setIsMonospace }) {
+	return <Settings setIsMonospace={setIsMonospace} />;
 }
 export default SettingsPage;
-
-

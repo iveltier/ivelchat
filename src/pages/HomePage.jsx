@@ -1,5 +1,5 @@
 import Home from "../components/home/home.jsx";
-function HomePage() {
-	return <Home />;
+function HomePage({ isMonospace }) {
+	return <Home isMonospace={isMonospace} />;
 }
 export default HomePage;
