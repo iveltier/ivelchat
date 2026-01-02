@@ -1,5 +1,15 @@
 import Settings from "../components/settings/settings.jsx";
-function SettingsPage({ setIsMonospace }) {
-	return <Settings setIsMonospace={setIsMonospace} />;
+function SettingsPage({
+	setIsMonospace,
+	currentUserPicture,
+	setCurrentUserPicture,
+}) {
+	return (
+		<Settings
+			setIsMonospace={setIsMonospace}
+			currentUserPicture={currentUserPicture}
+			setCurrentUserPicture={setCurrentUserPicture}
+		/>
+	);
 }
 export default SettingsPage;

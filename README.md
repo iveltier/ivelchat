@@ -13,14 +13,15 @@
 - send button picture
 - login / register stylen
 - responsive design
+- loader zwischen kontakten und login(?)
 
 ## javascript
+- menu sortieren
 - statisch exportieren
 - exports ändern
 - settings page
 - link to home page from settings
 - change Profile picture => globale settings variablen machen
-- persistence
 - spam schutz
 
 # sources

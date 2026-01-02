@@ -4,16 +4,17 @@
 
 import { useState, useRef } from "react";
 import styles from "./menu.module.css";
-import chatBots from "../chat/chatBotRespones/chatBots.json";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
 function Menu({
 	availableBotNames,
 	setBotsMessages,
 	chatMessages,
-	setChatMessages,
 	currentBot,
 	setCurrentBot,
 }) {
-	const [botList, setBotList] = useState([{ name: "simpleChatbot" }]);
+	const [botList, setBotList] = useLocalStorage("botList", [
+		{ name: "simpleChatbot" },
+	]);
 	const [searchText, setSearchText] = useState("");
 	const [isAdding, setIsAdding] = useState(false);
 	const [newBotName, setNewBotName] = useState("");
@@ -40,7 +41,7 @@ function Menu({
 			const name = newBotName.trim();
 
 			// look if the bot is available in the JSON ChatBot list
-			if (chatBots.bots.includes(name)) {
+			if (availableBotNames.includes(name)) {
 				setBotList([...botList, { name: newBotName.trim() }]); // add the new bot to the botList array
 			}
 
@@ -70,15 +71,14 @@ function Menu({
 	function selectBot(newBot) {
 		if (!newBot || newBot === currentBot) return;
 
-		setBotsMessages((prev) => {
-			const updated = {
-				...prev,
-				[currentBot]: chatMessages,
-			};
-			setChatMessages(updated[newBot] ?? []);
-			setCurrentBot(newBot);
-			return updated;
-		});
+		// Aktuellen Chatverlauf sichern
+		setBotsMessages((prev) => ({
+			...prev,
+			[currentBot]: chatMessages,
+		}));
+
+		// Bot wechseln
+		setCurrentBot(newBot);
 	}
 
 	return (
@@ -127,7 +127,7 @@ function Menu({
 							onClick={() => {
 								selectBot(bot.name);
 							}}
-							className={styles.chatBotListItem}
+							className={`${styles.chatBotListItem} ${bot.name === currentBot ? styles.currentBot : ""}`}
 						>
 							{bot.name}
 						</li>

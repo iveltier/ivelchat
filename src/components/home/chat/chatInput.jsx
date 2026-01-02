@@ -3,74 +3,93 @@ import styles from "./chatInput.module.css";
 import { getBotResponse } from "./chatBotRespones/chatBot.js";
 import chatBots from "./chatBotRespones/chatBots.json";
 import { useState } from "react";
-function ChatInput({ chatMessages, setChatMessages, currentBot, isMonospace }) {
+
+function ChatInput({
+	chatMessages,
+	setBotsMessages,
+	currentBot,
+	isMonospace,
+	currentUserPicture,
+}) {
 	const [inputText, setInputText] = useState("");
+
 	function saveInputText(event) {
 		setInputText(event.target.value);
 	}
+
 	async function sendMessage() {
 		if (inputText.trim() === "") {
 			setInputText("");
 			return;
 		}
 
-		// get bot profile picture
 		const botProfilePicture = chatBots.bots[currentBot].profilePicture;
 
-		// get new user chat message
-		const newChatMessages = [
+		const timestamp = new Date();
+		const updatedMessages = [
 			...chatMessages,
 			{
 				message: inputText,
 				sender: "user",
 				id: crypto.randomUUID(),
-				timestamp: new Date(),
+				timestamp: timestamp?.toLocaleString("de-DE", { hour12: false }),
 			},
 		];
-		setChatMessages(newChatMessages);
 
-		// send response
-		// choose spinner
+		// Speichern: User-Nachricht
+		setBotsMessages((prev) => ({
+			...prev,
+			[currentBot]: updatedMessages,
+		}));
 
+		// Spinner hinzufügen
 		const spinnerKeys = Object.keys(spinners);
 		const randomKey = spinnerKeys[chatBots.bots[currentBot].spinnerKey];
 		const spinnerData = spinners[randomKey];
 
-		// show spinner
-		const spinnerMessage = {
-			id: crypto.randomUUID(),
-			sender: "bot",
-			isSpinner: true,
-			spinnerData,
-			profilePicture: botProfilePicture,
-			isMonospace: isMonospace,
-		};
-		setChatMessages((prev) => [...prev, spinnerMessage]);
+		setBotsMessages((prev) => ({
+			...prev,
+			[currentBot]: [
+				...updatedMessages,
+				{
+					id: crypto.randomUUID(),
+					sender: "bot",
+					isSpinner: true,
+					spinnerData,
+					profilePicture: botProfilePicture,
+				},
+			],
+		}));
 
 		setInputText("");
-		// wait 1-3s
+
 		const delay = Math.random() * 2000 + 1000;
 		await new Promise((resolve) => setTimeout(resolve, delay));
 
-		//send real bot response
 		const response = getBotResponse(inputText, "simpleChatbot");
 
-		setChatMessages([
-			...newChatMessages,
-			{
-				message: response,
-				sender: "bot",
-				id: crypto.randomUUID(),
-				profilePicture: botProfilePicture,
-				timestamp: new Date(),
-				isMonospace: isMonospace,
-			},
-		]);
+		// Finale Bot-Antwort speichern
+		setBotsMessages((prev) => ({
+			...prev,
+			[currentBot]: [
+				...updatedMessages,
+				{
+					message: response,
+					sender: "bot",
+					id: crypto.randomUUID(),
+					profilePicture: botProfilePicture,
+					timestamp: timestamp?.toLocaleString("de-DE", { hour12: false }),
+					isMonospace,
+				},
+			],
+		}));
 	}
+
 	function handleOnKeyDown(event) {
 		if (event.key === "Enter") sendMessage();
 		if (event.key === "Escape") setInputText("");
 	}
+
 	return (
 		<div className={styles.messageInputContainer}>
 			<input
@@ -80,11 +99,12 @@ function ChatInput({ chatMessages, setChatMessages, currentBot, isMonospace }) {
 				value={inputText}
 				className={styles.messageInput}
 				placeholder="Send message to Chatbot"
-			></input>
+			/>
 			<button type="button" onClick={sendMessage} className={styles.sendButton}>
 				Send
 			</button>
 		</div>
 	);
 }
+
 export default ChatInput;

@@ -1,36 +1,42 @@
 import SettingsLogo from "./settingslogo/settingsLogo.jsx";
-import { useState } from "react";
 import Logo from "./logo/logo.jsx";
 import Chat from "./chat/chat.jsx";
 import styles from "./home.module.css";
 import Menu from "./menu/menu.jsx";
 import chatBots from "./chat/chatBotRespones/chatBots.json";
-function Home({ isMonospace }) {
-	// get the available bot names from JSON
+import { useLocalStorage } from "../../hooks/useLocalStorage.js";
+
+function Home({ isMonospace, currentUserPicture }) {
 	const availableBotNames = Object.keys(chatBots.bots);
-	// object {botName : [messages: "..."]}
-	const [botsMessages, setBotsMessages] = useState(() => {
-		const init = {};
-		availableBotNames.forEach((name) => {
-			const startMsg = chatBots.bots[name].responses.start;
-			const profilePicture = chatBots.bots[name].profilePicture;
-			init[name] = [
-				{
-					id: crypto.randomUUID(),
-					sender: "bot",
-					message: startMsg,
-					profilePicture: profilePicture,
-					timestamp: new Date(),
-				},
-			];
-		});
-		return init;
-	});
-	const [chatMessages, setChatMessages] = useState(
-		botsMessages[availableBotNames[0]] ?? [],
+
+	const [botsMessages, setBotsMessages] = useLocalStorage(
+		"botsMessages",
+		(() => {
+			const init = {};
+			availableBotNames.forEach((name) => {
+				const startMsg = chatBots.bots[name].responses.start;
+				const profilePicture = chatBots.bots[name].profilePicture;
+				const timestamp = new Date();
+				init[name] = [
+					{
+						id: crypto.randomUUID(),
+						sender: "bot",
+						message: startMsg,
+						profilePicture: profilePicture,
+						timestamp: timestamp?.toLocaleString("de-DE", { hour12: false }),
+					},
+				];
+			});
+			return init;
+		})(),
 	);
-	// set the current bot | default: first bot
-	const [currentBot, setCurrentBot] = useState(availableBotNames[0] ?? null);
+	const [currentBot, setCurrentBot] = useLocalStorage(
+		"currentBot",
+		availableBotNames[0] ?? null,
+	);
+
+	const chatMessages = botsMessages[currentBot] ?? [];
+
 	return (
 		<>
 			<SettingsLogo />
@@ -40,18 +46,19 @@ function Home({ isMonospace }) {
 					availableBotNames={availableBotNames}
 					setBotsMessages={setBotsMessages}
 					chatMessages={chatMessages}
-					setChatMessages={setChatMessages}
 					currentBot={currentBot}
 					setCurrentBot={setCurrentBot}
 				/>
 				<Chat
 					chatMessages={chatMessages}
-					setChatMessages={setChatMessages}
+					setBotsMessages={setBotsMessages}
 					currentBot={currentBot}
 					isMonospace={isMonospace}
+					currentUserPicture={currentUserPicture}
 				/>
 			</div>
 		</>
 	);
 }
+
 export default Home;

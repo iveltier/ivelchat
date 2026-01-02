@@ -3,7 +3,11 @@ import Logo from "../home/logo/logo.jsx";
 import { useState, useEffect } from "react";
 import { generatePalette, applyPaletteToCSS } from "./colorHelper.jsx";
 
-function Settings({ setIsMonospace }) {
+function Settings({
+	setIsMonospace,
+	currentUserPicture,
+	setCurrentUserPicture,
+}) {
 	const [baseColor, setBaseColor] = useState("#FFFFFF");
 	const [palette, setPalette] = useState([]);
 
@@ -13,9 +17,6 @@ function Settings({ setIsMonospace }) {
 		applyPaletteToCSS(palette);
 	}, [baseColor]);
 	const profilePicturesSrc = "/images/profilePictures/user/";
-	const [currentUserPicture, setCurrentUserPicture] = useState(
-		"/images/profilePictures/user/cookiemonster.jpg",
-	);
 	const [visible, setVisible] = useState(false);
 
 	const [time, setTime] = useState(new Date());

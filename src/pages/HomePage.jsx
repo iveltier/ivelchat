@@ -1,5 +1,7 @@
 import Home from "../components/home/home.jsx";
-function HomePage({ isMonospace }) {
-	return <Home isMonospace={isMonospace} />;
+function HomePage({ isMonospace, currentUserPicture }) {
+	return (
+		<Home isMonospace={isMonospace} currentUserPicture={currentUserPicture} />
+	);
 }
 export default HomePage;

@@ -1,7 +1,7 @@
 import styles from "./chatMessages.module.css";
 import ChatMessage from "./chatMessage";
 import { useEffect, useRef } from "react";
-function ChatMessages({ chatMessages }) {
+function ChatMessages({ chatMessages, currentUserPicture }) {
 	const chatMessageRef = useRef(null);
 	useEffect(() => {
 		const containerElem = chatMessageRef.current;
@@ -22,6 +22,7 @@ function ChatMessages({ chatMessages }) {
 						spinnerData={chatMessage.spinnerData}
 						key={chatMessage.id}
 						timestamp={chatMessage.timestamp}
+						currentUserPicture={currentUserPicture}
 					/>
 				);
 			})}
