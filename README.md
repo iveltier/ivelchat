@@ -17,6 +17,7 @@
 - schriftart
 
 ## javascript
+- bots deleten (?)
 - documentation
 - statisch exportieren
 
