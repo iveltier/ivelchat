@@ -4,7 +4,12 @@ import { useState, useEffect } from "react";
 import { generatePalette, applyPaletteToCSS } from "./colorHelper.jsx";
 
 function Settings({
+	enableTimestamp,
+	setEnableTimestamp,
+	isMonospace,
 	setIsMonospace,
+	enable24hFormat,
+	setEnable24hFormat,
 	currentUserPicture,
 	setCurrentUserPicture,
 }) {
@@ -47,9 +52,6 @@ function Settings({
 		};
 	}, []);
 
-	function handleMonospace(e) {
-		setIsMonospace(e.target.checked);
-	}
 	return (
 		<div className={styles.settingsContainer}>
 			<Logo />
@@ -102,7 +104,7 @@ function Settings({
 						{time.toLocaleTimeString("de-DE", {
 							hour: "2-digit",
 							minute: "2-digit",
-							hour12: false,
+							hour12: !enable24hFormat,
 						})}
 					</p>
 				</div>
@@ -125,7 +127,14 @@ function Settings({
 							<td>Timestamps</td>
 							<td>
 								<label className={styles.switch}>
-									<input type="checkbox" className={styles.checkBox} />
+									<input
+										type="checkbox"
+										className={styles.checkBox}
+										onChange={(e) => {
+											setEnableTimestamp(e.target.checked);
+										}}
+										checked={enableTimestamp}
+									/>
 									<span className={styles.slider}></span>
 								</label>
 							</td>
@@ -137,7 +146,10 @@ function Settings({
 									<input
 										type="checkbox"
 										className={styles.checkBox}
-										onChange={handleMonospace}
+										onChange={(e) => {
+											setIsMonospace(e.target.checked);
+										}}
+										checked={isMonospace}
 									/>
 									<span className={styles.slider}></span>
 								</label>
@@ -147,7 +159,14 @@ function Settings({
 							<td>24h Format</td>
 							<td>
 								<label className={styles.switch}>
-									<input type="checkbox" className={styles.checkBox} />
+									<input
+										type="checkbox"
+										className={styles.checkBox}
+										onChange={(e) => {
+											setEnable24hFormat(e.target.checked);
+										}}
+										checked={enable24hFormat}
+									/>
 									<span className={styles.slider}></span>
 								</label>
 							</td>

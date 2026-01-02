@@ -1,7 +1,13 @@
 import styles from "./chatMessages.module.css";
 import ChatMessage from "./chatMessage";
 import { useEffect, useRef } from "react";
-function ChatMessages({ chatMessages, currentUserPicture }) {
+function ChatMessages({
+	chatMessages,
+	currentUserPicture,
+	enableTimestamp,
+	isMonospace,
+	enable24hFormat,
+}) {
 	const chatMessageRef = useRef(null);
 	useEffect(() => {
 		const containerElem = chatMessageRef.current;
@@ -23,6 +29,9 @@ function ChatMessages({ chatMessages, currentUserPicture }) {
 						key={chatMessage.id}
 						timestamp={chatMessage.timestamp}
 						currentUserPicture={currentUserPicture}
+						enableTimestamp={enableTimestamp}
+						isMonospace={isMonospace}
+						enable24hFormat={enable24hFormat}
 					/>
 				);
 			})}

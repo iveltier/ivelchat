@@ -27,6 +27,7 @@
 
 .timestamp {
 	color: grey;
+	font-family: monospace;
 	font-size: 0.7rem;
 }
 

@@ -1,7 +1,17 @@
 import Home from "../components/home/home.jsx";
-function HomePage({ isMonospace, currentUserPicture }) {
+function HomePage({
+	enableTimestamp,
+	isMonospace,
+	enable24hFormat,
+	currentUserPicture,
+}) {
 	return (
-		<Home isMonospace={isMonospace} currentUserPicture={currentUserPicture} />
+		<Home
+			enableTimestamp={enableTimestamp}
+			isMonospace={isMonospace}
+			enable24hFormat={enable24hFormat}
+			currentUserPicture={currentUserPicture}
+		/>
 	);
 }
 export default HomePage;

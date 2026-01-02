@@ -7,7 +7,9 @@ function ChatMessage({
 	isSpinner,
 	spinnerData,
 	timestamp,
+	enableTimestamp,
 	isMonospace,
+	enable24hFormat,
 	currentUserPicture,
 }) {
 	const profilePictureSrc = `/images/profilePictures/bots/${profilePicture}`;
@@ -53,9 +55,14 @@ function ChatMessage({
 				className={`${styles.chatMessage} ${isMonospace ? styles.monospace : ""}`}
 			>
 				<p>{message}</p>
-				<span className={styles.timestamp}>
-					{timestamp?.toLocaleString("de-DE", { hour12: false })}
-				</span>
+
+				{enableTimestamp && (
+					<span className={styles.timestamp}>
+						{new Date(timestamp).toLocaleString("de-DE", {
+							hour12: !enable24hFormat,
+						})}
+					</span>
+				)}
 			</div>
 			{sender === "user" && (
 				<img

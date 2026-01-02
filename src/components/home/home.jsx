@@ -6,7 +6,12 @@ import Menu from "./menu/menu.jsx";
 import chatBots from "./chat/chatBotRespones/chatBots.json";
 import { useLocalStorage } from "../../hooks/useLocalStorage.js";
 
-function Home({ isMonospace, currentUserPicture }) {
+function Home({
+	enableTimestamp,
+	isMonospace,
+	enable24hFormat,
+	currentUserPicture,
+}) {
 	const availableBotNames = Object.keys(chatBots.bots);
 
 	const [botsMessages, setBotsMessages] = useLocalStorage(
@@ -23,7 +28,7 @@ function Home({ isMonospace, currentUserPicture }) {
 						sender: "bot",
 						message: startMsg,
 						profilePicture: profilePicture,
-						timestamp: timestamp?.toLocaleString("de-DE", { hour12: false }),
+						timestamp: Date.now(),
 					},
 				];
 			});
@@ -53,7 +58,9 @@ function Home({ isMonospace, currentUserPicture }) {
 					chatMessages={chatMessages}
 					setBotsMessages={setBotsMessages}
 					currentBot={currentBot}
+					enableTimestamp={enableTimestamp}
 					isMonospace={isMonospace}
+					enable24hFormat={enable24hFormat}
 					currentUserPicture={currentUserPicture}
 				/>
 			</div>

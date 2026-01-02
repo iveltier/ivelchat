@@ -4,13 +4,7 @@ import { getBotResponse } from "./chatBotRespones/chatBot.js";
 import chatBots from "./chatBotRespones/chatBots.json";
 import { useState } from "react";
 
-function ChatInput({
-	chatMessages,
-	setBotsMessages,
-	currentBot,
-	isMonospace,
-	currentUserPicture,
-}) {
+function ChatInput({ chatMessages, setBotsMessages, currentBot, isMonospace }) {
 	const [inputText, setInputText] = useState("");
 
 	function saveInputText(event) {
@@ -25,14 +19,13 @@ function ChatInput({
 
 		const botProfilePicture = chatBots.bots[currentBot].profilePicture;
 
-		const timestamp = new Date();
 		const updatedMessages = [
 			...chatMessages,
 			{
 				message: inputText,
 				sender: "user",
 				id: crypto.randomUUID(),
-				timestamp: timestamp?.toLocaleString("de-DE", { hour12: false }),
+				timestamp: Date.now(),
 			},
 		];
 
@@ -44,8 +37,8 @@ function ChatInput({
 
 		// Spinner hinzufügen
 		const spinnerKeys = Object.keys(spinners);
-		const randomKey = spinnerKeys[chatBots.bots[currentBot].spinnerKey];
-		const spinnerData = spinners[randomKey];
+		const botSpinnerKey = spinnerKeys[chatBots.bots[currentBot].spinnerKey];
+		const spinnerData = spinners[botSpinnerKey];
 
 		setBotsMessages((prev) => ({
 			...prev,
@@ -78,7 +71,7 @@ function ChatInput({
 					sender: "bot",
 					id: crypto.randomUUID(),
 					profilePicture: botProfilePicture,
-					timestamp: timestamp?.toLocaleString("de-DE", { hour12: false }),
+					timestamp: Date.now(),
 					isMonospace,
 				},
 			],

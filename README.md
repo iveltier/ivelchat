@@ -14,11 +14,9 @@
 - login / register stylen
 - responsive design
 - loader zwischen kontakten und login(?)
+- schriftart
 
 ## javascript
-- timestamp setting
-- isMonospace setting
-- 24h format setting
 - link to home page from settings
 - spam schutz
 - exports ändern
