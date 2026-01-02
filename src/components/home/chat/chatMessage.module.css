@@ -39,3 +39,7 @@ p {
 .monospace {
 	font-family: monospace;
 }
+
+.spamProtection {
+	cursor: not-allowed;
+}

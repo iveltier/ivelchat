@@ -22,3 +22,7 @@
 .messageInputContainer {
 	display: flex;
 }
+
+.spamProtection {
+	cursor: not-allowed;
+}

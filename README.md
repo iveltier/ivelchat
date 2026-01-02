@@ -17,12 +17,8 @@
 - schriftart
 
 ## javascript
-- link to home page from settings
-- spam schutz
-- exports ändern
-- menu sortieren
-- statisch exportieren
 - documentation
+- statisch exportieren
 
 # sources
 https://raw.githubusercontent.com/sindresorhus/cli-spinners/master/spinners.json

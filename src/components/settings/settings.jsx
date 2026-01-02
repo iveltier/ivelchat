@@ -1,4 +1,5 @@
 import styles from "./settings.module.css";
+import HomepageButton from "./homepageButton/homepageButton.jsx";
 import Logo from "../home/logo/logo.jsx";
 import { useState, useEffect } from "react";
 import { generatePalette, applyPaletteToCSS } from "./colorHelper.jsx";
@@ -55,6 +56,7 @@ function Settings({
 	return (
 		<div className={styles.settingsContainer}>
 			<Logo />
+			<HomepageButton />
 
 			<h1>Settings</h1>
 			{visible && (

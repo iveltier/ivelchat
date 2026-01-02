@@ -25,7 +25,7 @@ function App() {
 			<Route path="/" element={<LoginPage />} />
 			<Route path="/register" element={<RegisterPage />} />
 			<Route
-				path="/startseite"
+				path="/homepage"
 				element={
 					<HomePage
 						enableTimestamp={enableTimestamp}

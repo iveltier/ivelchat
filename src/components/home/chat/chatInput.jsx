@@ -11,9 +11,13 @@ function ChatInput({ chatMessages, setBotsMessages, currentBot, isMonospace }) {
 		setInputText(event.target.value);
 	}
 
+	const [spamProtection, setSpamProtection] = useState(false);
 	async function sendMessage() {
 		if (inputText.trim() === "") {
 			setInputText("");
+			return;
+		}
+		if (spamProtection) {
 			return;
 		}
 
@@ -56,10 +60,11 @@ function ChatInput({ chatMessages, setBotsMessages, currentBot, isMonospace }) {
 
 		setInputText("");
 
+		setSpamProtection(true);
 		const delay = Math.random() * 2000 + 1000;
 		await new Promise((resolve) => setTimeout(resolve, delay));
-
 		const response = getBotResponse(inputText, "simpleChatbot");
+		setSpamProtection(false);
 
 		// Finale Bot-Antwort speichern
 		setBotsMessages((prev) => ({
@@ -90,10 +95,19 @@ function ChatInput({ chatMessages, setBotsMessages, currentBot, isMonospace }) {
 				onChange={saveInputText}
 				onKeyDown={handleOnKeyDown}
 				value={inputText}
-				className={styles.messageInput}
-				placeholder="Send message to Chatbot"
+				className={`${styles.messageInput} ${spamProtection ? styles.spamProtection : ""}`}
+				placeholder={
+					spamProtection
+						? "Please wait kindly for the chatbot. It isn't always the fastest."
+						: "Send message to chatbot"
+				}
 			/>
-			<button type="button" onClick={sendMessage} className={styles.sendButton}>
+			<button
+				type="button"
+				onClick={sendMessage}
+				className={styles.sendButton}
+				disabled={spamProtection}
+			>
 				Send
 			</button>
 		</div>

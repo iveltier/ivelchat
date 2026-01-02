@@ -57,27 +57,27 @@ function Menu({
 			setSearchText("");
 		}
 	}
-
 	// filter for available bots and show bots, who havent been added yet
+
 	const filteredAvailableBots = availableBotNames
 		.filter((bot) => bot.toLowerCase().includes(newBotName.toLowerCase()))
-		.filter((bot) => !botList.some((b) => b.name === bot));
+		.filter((bot) => !botList.some((b) => b.name === bot))
+		.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
 
-	// filtered list of added bots
-	const filteredBots = botList.filter(
-		(bot) => bot.name.toLowerCase().includes(searchText), // handleSearch() provides searchText
-	);
-
+	// already added bots , sorted
+	const filteredBots = botList
+		.filter((bot) => bot.name.toLowerCase().includes(searchText))
+		.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
 	function selectBot(newBot) {
 		if (!newBot || newBot === currentBot) return;
 
-		// Aktuellen Chatverlauf sichern
+		// save current chat
 		setBotsMessages((prev) => ({
 			...prev,
 			[currentBot]: chatMessages,
 		}));
 
-		// Bot wechseln
+		// switch bots
 		setCurrentBot(newBot);
 	}
 
@@ -91,8 +91,7 @@ function Menu({
 				placeholder={isAdding ? "Add a new bot..." : "Search"}
 				value={isAdding ? newBotName : searchText}
 				onChange={(e) => {
-					if (isAdding) setNewBotName(e.target.value);
-					else handleSearch(e);
+					isAdding ? setNewBotName(e.target.value) : handleSearch(e);
 				}}
 				onKeyDown={handleKeyDown}
 			/>

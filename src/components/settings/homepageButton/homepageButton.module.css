@@ -1,0 +1,10 @@
+.settingsLogo {
+	font-size: 2.5rem;
+	color: gray;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background-color: lightgray;
+	border-radius: 15px;
+	padding: 0.2rem 1rem 0rem 1rem;
+}
