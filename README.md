@@ -16,13 +16,15 @@
 - loader zwischen kontakten und login(?)
 
 ## javascript
+- timestamp setting
+- isMonospace setting
+- 24h format setting
+- link to home page from settings
+- spam schutz
+- exports ändern
 - menu sortieren
 - statisch exportieren
-- exports ändern
-- settings page
-- link to home page from settings
-- change Profile picture => globale settings variablen machen
-- spam schutz
+- documentation
 
 # sources
 https://raw.githubusercontent.com/sindresorhus/cli-spinners/master/spinners.json
