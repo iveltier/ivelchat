@@ -10,7 +10,6 @@
 - css styling chat / kontakte
 - kontakte zu machen (?)
 - chat übergangg überarbeiten
-- send button picture
 - login / register stylen
 - responsive design
 - loader zwischen kontakten und login(?)
@@ -18,6 +17,7 @@
 
 ## javascript
 - bots deleten (?)
+- wenn keine bots mehr da
 - documentation
 - statisch exportieren
 

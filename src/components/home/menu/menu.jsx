@@ -36,6 +36,11 @@ function Menu({
 
 	// user is done typing => handle enter
 	function handleKeyDown(event) {
+		/* if (isAdding && filteredAvailableBots.length == 0) {
+						setIsAdding(false);
+						setNewBotName("");
+						setSearchText("");
+					}*/
 		if (event.key === "Enter" && isAdding && newBotName.trim() !== "") {
 			//when enter is pressed, adding mode is on and newBotName/value of input field is ""
 			const name = newBotName.trim();
@@ -83,26 +88,29 @@ function Menu({
 
 	return (
 		<div className={styles.menuContainer}>
-			<input
-				ref={inputRef}
-				name="input"
-				className={styles.chatBotInput}
-				type="text"
-				placeholder={isAdding ? "Add a new bot..." : "Search"}
-				value={isAdding ? newBotName : searchText}
-				onChange={(e) => {
-					isAdding ? setNewBotName(e.target.value) : handleSearch(e);
-				}}
-				onKeyDown={handleKeyDown}
-			/>
+			<div className={styles.searchContainer}>
+				<input
+					ref={inputRef}
+					name="input"
+					className={styles.chatBotInput}
+					type="text"
+					placeholder={isAdding ? "Add a new bot..." : "Search"}
+					value={isAdding ? newBotName : searchText}
+					onChange={(e) => {
+						isAdding ? setNewBotName(e.target.value) : handleSearch(e);
+					}}
+					onKeyDown={handleKeyDown}
+				/>
 
-			<button
-				type="button"
-				onClick={handleNewBot}
-				className={styles.chatBotAddBtn}
-			>
-				+
-			</button>
+				<span
+					type="button"
+					onClick={handleNewBot}
+					title="Add new chatbot"
+					className={styles.chatBotAddBtn}
+				>
+					+
+				</span>
+			</div>
 
 			<ul className={styles.chatBotList}>
 				{isAdding
