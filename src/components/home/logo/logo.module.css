@@ -3,7 +3,7 @@
 	font-size: 1rem;
 	font-weight: bold;
 	line-height: 1.1;
-	color: var(--theme-color-6);
+	color: var(--theme-color-7);
 	margin: 0;
 	padding: 0;
 	white-space: pre;
@@ -11,10 +11,4 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-
-@media (prefers-color-scheme: dark) {
-	.logo {
-		--logo-color: dark;
-	}
 }

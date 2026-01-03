@@ -4,9 +4,10 @@ export function generatePalette(base) {
 	return [
 		base,
 		colord(base).lighten(0.15).toHex(), // 2 hell
-		colord(base).lighten(0.3).toHex(), // 3 heller
-		colord(base).darken(0.15).toHex(), // 4 dunkel
-		colord(base).darken(0.25).toHex(), // 5 dunkler
+		colord(base).lighten(0.2).toHex(), // 3 heller
+		colord(base).lighten(0.3).toHex(), // 4 sehr heller
+		colord(base).darken(0.15).toHex(), // 5 dunkel
+		colord(base).darken(0.25).toHex(), // 6 dunkler
 		colord(base).invert().lighten(0.1).toHex(), // invertet
 		colord(base).rotate(180).toHex(), // kontrast
 	];

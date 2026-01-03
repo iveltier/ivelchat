@@ -5,6 +5,7 @@
 import { useState, useRef } from "react";
 import styles from "./menu.module.css";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
+import chatBots from "../../home/chat/chatBotRespones/chatBots.json";
 function Menu({
 	availableBotNames,
 	setBotsMessages,
@@ -37,10 +38,10 @@ function Menu({
 	// user is done typing => handle enter
 	function handleKeyDown(event) {
 		/* if (isAdding && filteredAvailableBots.length == 0) {
-						setIsAdding(false);
-						setNewBotName("");
-						setSearchText("");
-					}*/
+																			setIsAdding(false);
+																			setNewBotName("");
+																			setSearchText("");
+																		}*/
 		if (event.key === "Enter" && isAdding && newBotName.trim() !== "") {
 			//when enter is pressed, adding mode is on and newBotName/value of input field is ""
 			const name = newBotName.trim();
@@ -73,6 +74,8 @@ function Menu({
 	const filteredBots = botList
 		.filter((bot) => bot.name.toLowerCase().includes(searchText))
 		.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+
+	console.log(filteredBots);
 	function selectBot(newBot) {
 		if (!newBot || newBot === currentBot) return;
 
@@ -111,34 +114,52 @@ function Menu({
 					+
 				</span>
 			</div>
-
 			<ul className={styles.chatBotList}>
 				{isAdding
-					? filteredAvailableBots.map((bot) => (
-						<li
-							key={bot}
-							className={styles.chatBotListItem}
-							onClick={() => {
-								setBotList([...botList, { name: bot }]);
-								setIsAdding(false);
-								setNewBotName("");
-								setSearchText("");
-							}}
-						>
-							{bot}
-						</li>
-					))
-					: filteredBots.map((bot) => (
-						<li
-							key={bot.name}
-							onClick={() => {
-								selectBot(bot.name);
-							}}
-							className={`${styles.chatBotListItem} ${bot.name === currentBot ? styles.currentBot : ""}`}
-						>
-							{bot.name}
-						</li>
-					))}
+					? filteredAvailableBots.map((botName) => {
+						const botData = chatBots.bots[botName];
+
+						return (
+							<li
+								key={botName}
+								className={styles.chatBotListItem}
+								style={{ borderLeft: `6px solid ${botData.color}` }}
+								onClick={() => {
+									setBotList([...botList, { name: botName }]);
+									setIsAdding(false);
+									setNewBotName("");
+									setSearchText("");
+								}}
+							>
+								<img
+									src={`/images/profilePictures/bots/${botData.profilePicture}`}
+									alt={botName}
+									className={styles.botProfilePicture}
+								/>
+								<span className={styles.chatBotName}>{botName}</span>
+							</li>
+						);
+					})
+					: filteredBots.map((bot) => {
+						const botData = chatBots.bots[bot.name];
+
+						return (
+							<li
+								key={bot.name}
+								onClick={() => selectBot(bot.name)}
+								className={`${styles.chatBotListItem} ${bot.name === currentBot ? styles.currentBot : ""
+									}`}
+								style={{ borderLeft: `6px solid ${botData.color}` }}
+							>
+								<img
+									src={`/images/profilePictures/bots/${botData.profilePicture}`}
+									alt={bot.name}
+									className={styles.botProfilePicture}
+								/>
+								<span className={styles.chatBotName}>{bot.name}</span>
+							</li>
+						);
+					})}
 			</ul>
 		</div>
 	);
