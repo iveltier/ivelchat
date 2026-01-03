@@ -54,7 +54,7 @@ function ChatMessage({
 			<div
 				className={`${styles.chatMessage} ${isMonospace ? styles.monospace : ""}`}
 			>
-				<p>{message}</p>
+				<p className={styles.message}>{message}</p>
 
 				{enableTimestamp && (
 					<span className={styles.timestamp}>

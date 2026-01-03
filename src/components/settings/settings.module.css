@@ -1,7 +1,3 @@
-body {
-	background: var(--theme-color-2);
-}
-
 h1 {
 	font-family: monospace;
 	text-align: center;
@@ -137,4 +133,17 @@ h2 {
 .checkBox:checked+.slider:before {
 	transform: translateX(1.4em);
 	background-color: #fff;
+}
+
+.discription {
+	color: gray;
+	font-family: 0.75rem;
+}
+
+.setting {
+	font-size: 1.2rem;
+}
+
+.mono {
+	font-family: monospace;
 }

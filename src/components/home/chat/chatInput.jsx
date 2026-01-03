@@ -108,7 +108,7 @@ function ChatInput({ chatMessages, setBotsMessages, currentBot, isMonospace }) {
 				className={styles.sendButton}
 				disabled={spamProtection}
 			>
-				Send
+				⏎
 			</button>
 		</div>
 	);

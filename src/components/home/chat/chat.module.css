@@ -4,9 +4,10 @@
 	display: flex;
 	flex-grow: 1;
 	flex-direction: column;
+	margin: 10px;
 }
 
-/* -- fade overlay chat -- */
+/* -- fade overlay chat --
 
 .fadeOverlay {
 	position: relative;
@@ -24,4 +25,4 @@
 			rgba(255, 255, 255, 1),
 			rgba(255, 255, 255, 0));
 	pointer-events: none;
-}
+}*/

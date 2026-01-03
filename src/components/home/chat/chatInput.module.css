@@ -4,7 +4,7 @@
 	border-radius: 10px;
 	margin-left: 0.15rem;
 	border: 1px solid black;
-	font-size: 1.5rem;
+	font-size: 2rem;
 	cursor: pointer;
 }
 
@@ -15,7 +15,7 @@
 .messageInput {
 	border-radius: 10px;
 	flex-grow: 1;
-	font-size: 1.5rem;
+	font-size: 2rem;
 	padding: 0.5rem;
 }
 

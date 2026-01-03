@@ -11,8 +11,9 @@ function Chat({
 	enable24hFormat,
 	currentUserPicture,
 }) {
+	//${styles.fadeOverlay}
 	return (
-		<div className={`${styles.appContainer} ${styles.fadeOverlay}`}>
+		<div className={`${styles.appContainer} `}>
 			<ChatMessages
 				chatMessages={chatMessages}
 				currentUserPicture={currentUserPicture}

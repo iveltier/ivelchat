@@ -4,9 +4,20 @@ import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import SettingsPage from "./pages/SettingsPage.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocalStorage } from "./hooks/useLocalStorage.js";
+import {
+	applyPaletteToCSS,
+	generatePalette,
+} from "./components/settings/colorHelper.js";
 function App() {
+	const [baseColor, setBaseColor] = useLocalStorage("baseColor", "#FFFFFF");
+	const [palette, setPalette] = useState();
+	useEffect(() => {
+		const newPalette = generatePalette(baseColor);
+		setPalette(newPalette);
+		applyPaletteToCSS(newPalette);
+	}, [baseColor]);
 	const [enableTimestamp, setEnableTimestamp] = useLocalStorage(
 		"enableTimestamp",
 		true,
@@ -39,6 +50,8 @@ function App() {
 				path="/settings"
 				element={
 					<SettingsPage
+						baseColor={baseColor}
+						setBaseColor={setBaseColor}
 						enableTimestamp={enableTimestamp}
 						setEnableTimestamp={setEnableTimestamp}
 						isMonospace={isMonospace}

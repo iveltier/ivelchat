@@ -2,9 +2,10 @@ import styles from "./settings.module.css";
 import HomepageButton from "./homepageButton/homepageButton.jsx";
 import Logo from "../home/logo/logo.jsx";
 import { useState, useEffect } from "react";
-import { generatePalette, applyPaletteToCSS } from "./colorHelper.jsx";
 
 function Settings({
+	baseColor,
+	setBaseColor,
 	enableTimestamp,
 	setEnableTimestamp,
 	isMonospace,
@@ -14,14 +15,6 @@ function Settings({
 	currentUserPicture,
 	setCurrentUserPicture,
 }) {
-	const [baseColor, setBaseColor] = useState("#FFFFFF");
-	const [palette, setPalette] = useState([]);
-
-	useEffect(() => {
-		const newPalette = generatePalette(baseColor);
-		setPalette(newPalette);
-		applyPaletteToCSS(palette);
-	}, [baseColor]);
 	const profilePicturesSrc = "/images/profilePictures/user/";
 	const [visible, setVisible] = useState(false);
 
@@ -114,7 +107,13 @@ function Settings({
 				<table className={styles.settingsTable}>
 					<tbody>
 						<tr>
-							<td>Color Scheme</td>
+							<td>
+								<p className={styles.setting}>Colorscheme</p>
+								<p className={styles.discription}>
+									Choose a color and the website will generate a color scheme
+									based on the choosen color.
+								</p>
+							</td>
 							<td>
 								<input
 									type="color"
@@ -126,7 +125,12 @@ function Settings({
 							</td>
 						</tr>
 						<tr>
-							<td>Timestamps</td>
+							<td>
+								<p className={styles.setting}>Timestamps</p>
+								<p className={styles.discription}>
+									Enables / disables timestamps for chat messages.
+								</p>
+							</td>
 							<td>
 								<label className={styles.switch}>
 									<input
@@ -142,7 +146,14 @@ function Settings({
 							</td>
 						</tr>
 						<tr>
-							<td>Monospace</td>
+							<td>
+								<p className={styles.setting}>Monospace</p>
+								<p className={styles.discription}>
+									Enables / disables the "
+									<span className={styles.mono}>monospace</span>" font-family
+									for chat messages.
+								</p>
+							</td>
 							<td>
 								<label className={styles.switch}>
 									<input
@@ -158,7 +169,12 @@ function Settings({
 							</td>
 						</tr>
 						<tr>
-							<td>24h Format</td>
+							<td>
+								<p className={styles.setting}>24h Format</p>
+								<p className={styles.discription}>
+									Enables / disables the 24h Format for every clock.
+								</p>
+							</td>
 							<td>
 								<label className={styles.switch}>
 									<input

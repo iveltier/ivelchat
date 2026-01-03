@@ -1,5 +1,7 @@
 import Settings from "../components/settings/settings.jsx";
 function SettingsPage({
+	baseColor,
+	setBaseColor,
 	enableTimestamp,
 	setEnableTimestamp,
 	isMonospace,
@@ -11,6 +13,8 @@ function SettingsPage({
 }) {
 	return (
 		<Settings
+			baseColor={baseColor}
+			setBaseColor={setBaseColor}
 			enable24hFormat={enable24hFormat}
 			setEnable24hFormat={setEnable24hFormat}
 			enableTimestamp={enableTimestamp}

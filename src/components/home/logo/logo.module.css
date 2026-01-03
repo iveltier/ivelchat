@@ -3,7 +3,7 @@
 	font-size: 1rem;
 	font-weight: bold;
 	line-height: 1.1;
-	color: cornflowerblue;
+	color: var(--theme-color-6);
 	margin: 0;
 	padding: 0;
 	white-space: pre;
