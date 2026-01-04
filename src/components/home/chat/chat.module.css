@@ -1,6 +1,6 @@
 .appContainer {
 	max-width: 80vw;
-	height: 80vh;
+	height: 72vh;
 	display: flex;
 	flex-grow: 1;
 	flex-direction: column;

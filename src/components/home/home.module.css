@@ -1,5 +1,6 @@
 .homeWrapper {
 	display: flex;
+	align-items: flex-end;
 	flex-direction: row;
 	position: absolute;
 	bottom: 0;

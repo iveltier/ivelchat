@@ -1,4 +1,10 @@
 body {
 	margin: 0;
 	background-color: var(--theme-color-1);
+	font-family: "Noto Sans";
+}
+
+h1,
+h2 {
+	font-family: "Tomorrow";
 }

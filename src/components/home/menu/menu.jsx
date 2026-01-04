@@ -2,11 +2,16 @@
 // this is the contact menu
 // you can add bots or search in the contacts
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import styles from "./menu.module.css";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import chatBots from "../../home/chat/chatBotRespones/chatBots.json";
+import addSymbolBlack from "../../../assets/addSymbolBlack.png";
+import addSymbolWhite from "../../../assets/addSymbolWhite.png";
+import { getTextColor } from "../../settings/colorHelper";
+
 function Menu({
+	baseColor,
 	availableBotNames,
 	setBotsMessages,
 	chatMessages,
@@ -29,19 +34,16 @@ function Menu({
 
 	// triggered by "+" - button
 	function handleNewBot() {
-		setIsAdding(true); // set the adding mode to true => no more searching (handleSearch() is deactivated)
-		setNewBotName(""); // reset newBotName
-		setSearchText(""); // reset searchText
-		inputRef.current.focus(); // focus on the input field
+		if (filteredAvailableBots.length !== 0) {
+			setIsAdding(true); // set the adding mode to true => no more searching (handleSearch() is deactivated)
+			setNewBotName(""); // reset newBotName
+			setSearchText(""); // reset searchText
+			inputRef.current.focus(); // focus on the input field
+		}
 	}
 
 	// user is done typing => handle enter
 	function handleKeyDown(event) {
-		/* if (isAdding && filteredAvailableBots.length == 0) {
-																			setIsAdding(false);
-																			setNewBotName("");
-																			setSearchText("");
-																		}*/
 		if (event.key === "Enter" && isAdding && newBotName.trim() !== "") {
 			//when enter is pressed, adding mode is on and newBotName/value of input field is ""
 			const name = newBotName.trim();
@@ -75,7 +77,6 @@ function Menu({
 		.filter((bot) => bot.name.toLowerCase().includes(searchText))
 		.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
 
-	console.log(filteredBots);
 	function selectBot(newBot) {
 		if (!newBot || newBot === currentBot) return;
 
@@ -89,6 +90,13 @@ function Menu({
 		setCurrentBot(newBot);
 	}
 
+	const [isTextColorWhite, setIsTextColorWhite] = useState(
+		getTextColor(baseColor) === "#ffffff",
+	);
+
+	useEffect(() => {
+		setIsTextColorWhite(getTextColor(baseColor) === "#ffffff");
+	}, [baseColor]);
 	return (
 		<div className={styles.menuContainer}>
 			<div className={styles.searchContainer}>
@@ -104,62 +112,79 @@ function Menu({
 					}}
 					onKeyDown={handleKeyDown}
 				/>
-
-				<span
-					type="button"
-					onClick={handleNewBot}
-					title="Add new chatbot"
-					className={styles.chatBotAddBtn}
-				>
-					+
-				</span>
 			</div>
 			<ul className={styles.chatBotList}>
-				{isAdding
-					? filteredAvailableBots.map((botName) => {
-						const botData = chatBots.bots[botName];
+				{!isAdding ? (
+					<li
+						className={`${styles.chatBotListItem} ${styles.addBot} ${filteredAvailableBots.length === 0 ? styles.disabled : ""}`}
+						onClick={handleNewBot}
+						title="Add new Bot"
+					>
+						{isTextColorWhite ? (
+							<img
+								src={addSymbolWhite}
+								alt="add sign"
+								className={styles.addSymbol}
+							/>
+						) : (
+							<img
+								src={addSymbolBlack}
+								alt="add sign"
+								className={styles.addSymbol}
+							/>
+						)}
+						<span className={styles.chatBotName}>Add a new bot</span>
+					</li>
+				) : (
+					""
+				)}
+				<div className={styles.listWrapper}>
+					{isAdding
+						? filteredAvailableBots.map((botName) => {
+							const botData = chatBots.bots[botName];
 
-						return (
-							<li
-								key={botName}
-								className={styles.chatBotListItem}
-								style={{ borderLeft: `6px solid ${botData.color}` }}
-								onClick={() => {
-									setBotList([...botList, { name: botName }]);
-									setIsAdding(false);
-									setNewBotName("");
-									setSearchText("");
-								}}
-							>
-								<img
-									src={`/images/profilePictures/bots/${botData.profilePicture}`}
-									alt={botName}
-									className={styles.botProfilePicture}
-								/>
-								<span className={styles.chatBotName}>{botName}</span>
-							</li>
-						);
-					})
-					: filteredBots.map((bot) => {
-						const botData = chatBots.bots[bot.name];
+							return (
+								<li
+									key={botName}
+									className={styles.chatBotListItem}
+									style={{ borderLeft: `6px solid ${botData.color}` }}
+									onClick={() => {
+										setBotList([...botList, { name: botName }]);
+										setIsAdding(false);
+										setNewBotName("");
+										setSearchText("");
+									}}
+								>
+									<img
+										src={`/images/profilePictures/bots/${botData.profilePicture}`}
+										alt={botName}
+										className={styles.botProfilePicture}
+									/>
+									<span className={styles.chatBotName}>{botName}</span>
+								</li>
+							);
+						})
+						: filteredBots.map((bot) => {
+							const botData = chatBots.bots[bot.name];
 
-						return (
-							<li
-								key={bot.name}
-								onClick={() => selectBot(bot.name)}
-								className={`${styles.chatBotListItem} ${bot.name === currentBot ? styles.currentBot : ""
-									}`}
-								style={{ borderLeft: `6px solid ${botData.color}` }}
-							>
-								<img
-									src={`/images/profilePictures/bots/${botData.profilePicture}`}
-									alt={bot.name}
-									className={styles.botProfilePicture}
-								/>
-								<span className={styles.chatBotName}>{bot.name}</span>
-							</li>
-						);
-					})}
+							return (
+								<li
+									key={bot.name}
+									onClick={() => selectBot(bot.name)}
+									className={`${styles.chatBotListItem} ${bot.name === currentBot ? styles.currentBot : ""
+										}`}
+									style={{ borderLeft: `6px solid ${botData.color}` }}
+								>
+									<img
+										src={`/images/profilePictures/bots/${botData.profilePicture}`}
+										alt={bot.name}
+										className={styles.botProfilePicture}
+									/>
+									<span className={styles.chatBotName}>{bot.name}</span>
+								</li>
+							);
+						})}
+				</div>
 			</ul>
 		</div>
 	);

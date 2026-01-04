@@ -11,7 +11,7 @@ import {
 	generatePalette,
 } from "./components/settings/colorHelper.js";
 function App() {
-	const [baseColor, setBaseColor] = useLocalStorage("baseColor", "#FFFFFF");
+	const [baseColor, setBaseColor] = useLocalStorage("baseColor", "#c7bdd6");
 	const [palette, setPalette] = useState();
 	useEffect(() => {
 		const newPalette = generatePalette(baseColor);
@@ -39,6 +39,7 @@ function App() {
 				path="/homepage"
 				element={
 					<HomePage
+						baseColor={baseColor}
 						enableTimestamp={enableTimestamp}
 						isMonospace={isMonospace}
 						enable24hFormat={enable24hFormat}

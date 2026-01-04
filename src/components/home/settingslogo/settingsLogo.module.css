@@ -1,10 +1,14 @@
 .settingsLogo {
-	font-size: 2.5rem;
-	color: gray;
+	font-size: 3rem;
+	color: var(--theme-sub-text-color);
 	position: absolute;
 	top: 10px;
 	right: 10px;
-	background-color: lightgray;
+	background-color: var(--theme-color-5);
 	border-radius: 15px;
 	padding: 0rem 0.5rem;
+}
+
+.settingsLogo:hover {
+	background-color: var(--theme-color-6);
 }

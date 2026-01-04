@@ -1,5 +1,6 @@
 import Home from "../components/home/home.jsx";
 function HomePage({
+	baseColor,
 	enableTimestamp,
 	isMonospace,
 	enable24hFormat,
@@ -7,6 +8,7 @@ function HomePage({
 }) {
 	return (
 		<Home
+			baseColor={baseColor}
 			enableTimestamp={enableTimestamp}
 			isMonospace={isMonospace}
 			enable24hFormat={enable24hFormat}

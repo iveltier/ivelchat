@@ -52,7 +52,7 @@ function ChatMessage({
 				/>
 			)}
 			<div
-				className={`${styles.chatMessage} ${isMonospace ? styles.monospace : ""}`}
+				className={`${styles.chatMessage} ${isMonospace ? styles.monospace : ""} ${sender === "user" ? styles.chatMessageUserShadow : styles.chatMessageBotShadow}`}
 			>
 				<p className={styles.message}>{message}</p>
 

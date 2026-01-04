@@ -7,6 +7,7 @@ import chatBots from "./chat/chatBotRespones/chatBots.json";
 import { useLocalStorage } from "../../hooks/useLocalStorage.js";
 
 function Home({
+	baseColor,
 	enableTimestamp,
 	isMonospace,
 	enable24hFormat,
@@ -48,6 +49,7 @@ function Home({
 			<Logo />
 			<div className={styles.homeWrapper}>
 				<Menu
+					baseColor={baseColor}
 					availableBotNames={availableBotNames}
 					setBotsMessages={setBotsMessages}
 					chatMessages={chatMessages}

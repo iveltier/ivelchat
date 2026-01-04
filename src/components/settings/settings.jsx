@@ -54,7 +54,9 @@ function Settings({
 			<h1>Settings</h1>
 			{visible && (
 				<div className={styles.changeProfilePictureWindow}>
-					<h2>Change your profile picture</h2>
+					<h2 className={styles.changeProfilePictureWindowHeading}>
+						Change your profile picture
+					</h2>
 					<div className={styles.profilePicturesWrapper}>
 						{[
 							"cookiemonster.jpg",
@@ -84,24 +86,28 @@ function Settings({
 			)}
 			<div className={styles.settingsWrapper}>
 				<div>
-					<img src={currentUserPicture} className={styles.currentUserPicture} />
-					<button
-						type="button"
-						className={styles.changeProfilePictureButton}
-						onClick={() => setVisible(true)}
-					>
-						CHANGE PROFILE PICTURE
-					</button>
-					<p className={styles.profileInfo}>Guest</p>
-
-					<p>
-						⏱{" "}
-						{time.toLocaleTimeString("de-DE", {
-							hour: "2-digit",
-							minute: "2-digit",
-							hour12: !enable24hFormat,
-						})}
-					</p>
+					<div className={styles.profilePicturesContainer}>
+						<img
+							src={currentUserPicture}
+							className={styles.currentUserPicture}
+						/>
+						<button
+							type="button"
+							className={styles.changeProfilePictureButton}
+							onClick={() => setVisible(true)}
+						>
+							CHANGE PROFILE PICTURE
+						</button>
+						<p className={styles.profileInfoName}>Guest</p>
+						<p className={styles.profileInfoClock}>
+							⏱{" "}
+							{time.toLocaleTimeString("de-DE", {
+								hour: "2-digit",
+								minute: "2-digit",
+								hour12: !enable24hFormat,
+							})}
+						</p>
+					</div>
 				</div>
 
 				<table className={styles.settingsTable}>
@@ -121,6 +127,7 @@ function Settings({
 									onChange={(e) => {
 										setBaseColor(e.target.value);
 									}}
+									className={styles.colorPicker}
 								/>
 							</td>
 						</tr>
