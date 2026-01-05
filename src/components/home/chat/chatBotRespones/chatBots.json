@@ -8,8 +8,10 @@
 					"action": "flipCoin"
 				},
 				"how are you": "Thanks, I'm fine. How are you?",
-				"I'm fine": "Great to hear",
 				"help": "cant help you",
+				"dice": {
+					"action": "dice"
+				},
 				"default": "Sorry, I'm just a stupid chatbot"
 			},
 			"profilePicture": "walle.jpg",
