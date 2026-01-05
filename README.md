@@ -7,8 +7,6 @@
 
 ## styling
 - favicon
-- jeder seite ein bild
-- loader zwischen kontakten und login(?)
 - responsive design
 
 ## javascript

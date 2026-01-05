@@ -65,3 +65,24 @@ body {
 .link {
 	color: var(--theme-color-7);
 }
+
+.linkAsBtn {
+	color: var(--theme-color-7);
+	border: none;
+	background: none;
+	text-decoration: underline;
+	cursor: pointer;
+	font: inherit;
+	padding: 0;
+}
+
+.loaderContainer {
+	position: relative;
+	top: 150px;
+	text-align: center;
+	margin: auto;
+}
+
+.loader {
+	width: 5vw;
+}
