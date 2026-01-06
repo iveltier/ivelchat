@@ -63,7 +63,7 @@ function ChatInput({ chatMessages, setBotsMessages, currentBot, isMonospace }) {
 		setSpamProtection(true);
 		const delay = Math.random() * 2000 + 1000;
 		await new Promise((resolve) => setTimeout(resolve, delay));
-		const response = getBotResponse(inputText, "simpleChatbot");
+		const response = await getBotResponse(inputText, currentBot);
 		setSpamProtection(false);
 
 		// Finale Bot-Antwort speichern

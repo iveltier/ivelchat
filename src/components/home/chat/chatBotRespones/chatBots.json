@@ -17,10 +17,20 @@
 			"profilePicture": "walle.jpg",
 			"spinnerKey": 12
 		},
-		"simpleChatbot2": {
+		"quoteBot": {
 			"responses": {
 				"start": "Hello, I'm stupid two",
-				"hello": "Hello im 2"
+				"hello": "Hello im 2",
+				"quote": {
+					"action": "fetchQuote"
+				},
+				"quotes": {
+					"action": "fetchQuote"
+				},
+				"zitat": {
+					"action": "fetchQuote"
+				},
+				"default": "Penis"
 			},
 			"profilePicture": "smokeCat.jpg",
 			"spinnerKey": 11

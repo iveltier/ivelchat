@@ -19,7 +19,7 @@ export function getBotResponse(message, botName) {
 	if (typeof response === "object" && response.action) {
 		//check if the response should be an actions => use the actions.js file
 		const fn = actions[response.action];
-		return fn();
+		return fn(message);
 	}
 
 	return response;
