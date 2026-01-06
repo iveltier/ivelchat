@@ -17,20 +17,19 @@
 			"profilePicture": "walle.jpg",
 			"spinnerKey": 12
 		},
-		"quoteBot": {
+		"Quote-bot": {
 			"responses": {
-				"start": "Hello, I'm stupid two",
+				"start": "Hello, I'm the quotes Bot. Just type 'quote + your topic', to get a fitting quote :D. Type 'list' to see a full list of available topics.",
 				"hello": "Hello im 2",
+				"list": "Available topics are: wisdom, philosophy, life, truth, inspirational, relationships, love, faith, humor, success, courage, happiness, art, writing, fear, nature, time, freedom, death, leadership",
+				"help": "This is a chatbot, who can give you a quote for a choosen topic. Type 'quote + your topic', to get a fitting quote. Type 'list' to see a full list of available topics.",
 				"quote": {
 					"action": "fetchQuote"
 				},
 				"quotes": {
 					"action": "fetchQuote"
 				},
-				"zitat": {
-					"action": "fetchQuote"
-				},
-				"default": "Penis"
+				"default": "This is a chatbot, who can give you a quote for a choosen topic. Type 'quote + your topic', to get a fitting quote. Type 'list' to see a full list of available topics."
 			},
 			"profilePicture": "smokeCat.jpg",
 			"spinnerKey": 11
