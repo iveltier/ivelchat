@@ -11,7 +11,6 @@
 
 ## javascript
 - actions api key msg
-- bots deleten 
 - documentation
 
 # sources
