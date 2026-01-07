@@ -10,7 +10,8 @@
 - responsive design
 
 ## javascript
-- bots deleten (?)
+- actions api key msg
+- bots deleten 
 - documentation
 
 # sources

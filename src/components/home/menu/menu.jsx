@@ -90,6 +90,27 @@ function Menu({
 		setCurrentBot(newBot);
 	}
 
+	function removeBot(botName) {
+		//remove from localStorage
+		setBotList((prev) => prev.filter((bot) => bot.name !== botName));
+
+		// delete all messages exept first one (start)
+		setBotsMessages((prev) => {
+			const startMsg = prev[botName]?.[0]; // safe first message
+			return {
+				...prev,
+				[botName]: startMsg ? [startMsg] : [], // keep only the start msg
+			};
+		});
+
+		// switch to other bot, if the removed bot was active
+		if (botName === currentBot) {
+			const remaining = botList.filter((b) => b.name !== botName);
+			const next = remaining.length ? remaining[0].name : null;
+			setCurrentBot(next);
+		}
+	}
+
 	const [isTextColorWhite, setIsTextColorWhite] = useState(
 		getTextColor(baseColor) === "#ffffff",
 	);
@@ -173,7 +194,6 @@ function Menu({
 									onClick={() => selectBot(bot.name)}
 									className={`${styles.chatBotListItem} ${bot.name === currentBot ? styles.currentBot : ""
 										}`}
-									style={{ borderLeft: `6px solid ${botData.color}` }}
 								>
 									<img
 										src={`/images/profilePictures/bots/${botData.profilePicture}`}
@@ -181,6 +201,15 @@ function Menu({
 										className={styles.botProfilePicture}
 									/>
 									<span className={styles.chatBotName}>{bot.name}</span>
+									<span
+										className={styles.remove}
+										onClick={(e) => {
+											e.stopPropagation();
+											removeBot(bot.name);
+										}}
+									>
+										×
+									</span>
 								</li>
 							);
 						})}
