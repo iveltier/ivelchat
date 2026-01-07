@@ -2,7 +2,7 @@
 
 ## inhalte
 
-- neue bots (z.b poet, erklärbär, zufallsachen)
+- neue bots (z.b erklärbär, zufallsachen)
 - mehr actions
 
 ## styling
@@ -10,7 +10,6 @@
 - responsive design
 
 ## javascript
-- actions api key msg
 - documentation
 
 # sources
