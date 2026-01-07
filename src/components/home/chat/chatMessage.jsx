@@ -1,3 +1,5 @@
+// ../../../components/home/chat/chatMessage.jsx
+// generates the chatmessage
 import styles from "./chatMessage.module.css";
 import Spinner from "./spinner.jsx";
 function ChatMessage({
@@ -12,14 +14,12 @@ function ChatMessage({
 	enable24hFormat,
 	currentUserPicture,
 }) {
+	// bot profilePicture src
 	const profilePictureSrc = `/images/profilePictures/bots/${profilePicture}`;
+	// spinner message
 	if (isSpinner) {
 		return (
-			<div
-				className={
-					sender === "user" ? styles.chatMessageUser : styles.chatMessageBot
-				}
-			>
+			<div className={styles.chatMessageBot}>
 				{sender === "bot" && (
 					<img
 						src={profilePictureSrc}
@@ -38,6 +38,8 @@ function ChatMessage({
 			</div>
 		);
 	}
+	// return the profilePicture on the left if the sender is "bot" => else on right
+	// settings like isMonospace get applied here
 	return (
 		<div
 			className={

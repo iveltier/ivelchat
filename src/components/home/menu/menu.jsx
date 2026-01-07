@@ -1,6 +1,6 @@
 // menu.jsx
 // this is the contact menu
-// you can add bots or search in the contacts
+// you can add / remove bots or search in the contacts
 
 import { useState, useRef, useEffect } from "react";
 import styles from "./menu.module.css";
@@ -18,21 +18,28 @@ function Menu({
 	currentBot,
 	setCurrentBot,
 }) {
+	// list with added bots, saved in localStorage
 	const [botList, setBotList] = useLocalStorage("botList", [
 		{ name: "Intro-Bot" },
 	]);
+
+	// text in the searchBar
 	const [searchText, setSearchText] = useState("");
+	// variable to determine if the search mode or the add mode needs to be used
 	const [isAdding, setIsAdding] = useState(false);
+	// const to add a new bot
 	const [newBotName, setNewBotName] = useState("");
+	//ref for input to e.g. focus the cursor
 	const inputRef = useRef(null);
 
 	// search function
 	function handleSearch(event) {
-		if (isAdding) return; // look if "+" has been pressed, else search for the value of the input
-		setSearchText(event.target.value.toLowerCase());
+		if (isAdding) return; // look if "+" has been pressed, else search for the value of the input | if add mode is on
+		setSearchText(event.target.value.toLowerCase()); // set the search variable
 	}
 
 	// triggered by "+" - button
+	// add a new bot
 	function handleNewBot() {
 		if (filteredAvailableBots.length !== 0) {
 			setIsAdding(true); // set the adding mode to true => no more searching (handleSearch() is deactivated)
@@ -77,6 +84,7 @@ function Menu({
 		.filter((bot) => bot.name.toLowerCase().includes(searchText))
 		.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
 
+	// function to change the current chat
 	function selectBot(newBot) {
 		if (!newBot || newBot === currentBot) return;
 
@@ -90,6 +98,7 @@ function Menu({
 		setCurrentBot(newBot);
 	}
 
+	// remove bot by pressing the "X"
 	function removeBot(botName) {
 		//remove from localStorage
 		setBotList((prev) => prev.filter((bot) => bot.name !== botName));
@@ -111,13 +120,20 @@ function Menu({
 		}
 	}
 
+	// variable to get the current text color (based on the baseColor choosen by the user)
+	// used for the color of the addingIcon
 	const [isTextColorWhite, setIsTextColorWhite] = useState(
 		getTextColor(baseColor) === "#ffffff",
 	);
 
+	// always update on the change of baseColor
 	useEffect(() => {
 		setIsTextColorWhite(getTextColor(baseColor) === "#ffffff");
 	}, [baseColor]);
+
+	// the li elements under the search bar change wether isAdding is true or false
+	// if true then it shows available Bot Names, who havent been added yet
+	// if false it shows available Bot Names, who have been added yet
 	return (
 		<div className={styles.menuContainer}>
 			<div className={styles.searchContainer}>

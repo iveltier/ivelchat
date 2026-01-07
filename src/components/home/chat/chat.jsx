@@ -1,3 +1,5 @@
+// ../../../components/home/chat/chat.jsx
+// chat container for input & messages
 import styles from "./chat.module.css";
 import ChatInput from "./chatInput.jsx";
 import ChatMessages from "./chatMessages.jsx";
@@ -11,7 +13,6 @@ function Chat({
 	enable24hFormat,
 	currentUserPicture,
 }) {
-	//${styles.fadeOverlay}
 	return (
 		<div className={`${styles.appContainer} `}>
 			<ChatMessages

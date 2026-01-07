@@ -1,3 +1,5 @@
+// ../../../components/home/settingslogo/settingsLogo.jsx
+// ascii logo used in every site
 import styles from "./logo.module.css";
 
 const asciiLogo = `
@@ -10,5 +12,6 @@ const asciiLogo = `
 `;
 
 export default function Logo() {
+	//returns a pre element for ascii art
 	return <pre className={styles.logo}>{asciiLogo}</pre>;
 }

@@ -1,3 +1,7 @@
+/*
+../../../components/home/menu/menu.module.css
+modular css for menu.jsx
+* */
 .menuContainer {
 	background-color: var(--theme-color-5);
 	width: 20vw;
@@ -12,10 +16,7 @@
 	box-shadow: 0px 0px 20px 5px var(--theme-color-2);
 }
 
-.chatBotList {
-	height: 80%;
-}
-
+/* search bar */
 .chatBotInput {
 	width: 90%;
 	background-color: var(--theme-color-2);
@@ -44,6 +45,19 @@
 	color: var(--theme-sub-text-color);
 }
 
+/*ul list of chatbots*/
+
+.chatBotList {
+	height: 80%;
+}
+
+/* wrapps the ul so the user can scroll, if overflow*/
+.listWrapper {
+	height: 90%;
+	overflow: scroll;
+	scrollbar-width: none;
+}
+
 .chatBotListItem {
 	display: flex;
 	flex-direction: row;
@@ -67,6 +81,12 @@
 
 .chatBotListItem:active {}
 
+.chatBotName {
+	display: flex;
+	align-items: center;
+}
+
+/*current bot is highlighted */
 .currentBot {
 	background-color: var(--theme-color-3);
 }
@@ -89,17 +109,7 @@
 	cursor: not-allowed;
 }
 
-.listWrapper {
-	height: 90%;
-	overflow: scroll;
-	scrollbar-width: none;
-}
-
-.chatBotName {
-	display: flex;
-	align-items: center;
-}
-
+/*remove btn*/
 .remove {
 	color: var(--theme-sub-text-color);
 	margin-left: auto;

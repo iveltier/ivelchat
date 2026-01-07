@@ -1,3 +1,9 @@
+/*
+../../../components/home/settingslogo/settingsLogo.module.css
+modular css for settingsLogo.jsx
+* */
+
+/*fixed little icon in top right corner*/
 .settingsLogo {
 	font-size: 3rem;
 	color: var(--theme-sub-text-color);
@@ -7,8 +13,11 @@
 	background-color: var(--theme-color-5);
 	border-radius: 15px;
 	padding: 0rem 0.5rem;
+	transition: transform 0.3s;
 }
 
+/* scales on hover and changes bgcolor*/
 .settingsLogo:hover {
 	background-color: var(--theme-color-6);
+	transform: scale(1.1);
 }

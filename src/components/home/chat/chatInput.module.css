@@ -1,18 +1,7 @@
-.sendButton {
-	background-color: var(--theme-color-5);
-	padding: 0.5rem 1rem;
-	border-radius: 10px;
-	margin-left: 0.15rem;
-	border: 1px solid black;
-	font-size: 2rem;
-	cursor: pointer;
-	color: var(--theme-text-color);
-}
-
-.sendButton:hover {
-	background-color: var(--theme-color-2);
-}
-
+/*
+ ../../../components/home/chat/chatInput.module.css
+ modular css for chatInput.jsx
+*/
 .messageInput {
 	background-color: var(--theme-color-2);
 	border: 3px solid var(--theme-color-5);
@@ -31,6 +20,21 @@
 	margin-top: 10px;
 	align-items: center;
 	display: flex;
+}
+
+.sendButton {
+	background-color: var(--theme-color-5);
+	padding: 0.5rem 1rem;
+	border-radius: 10px;
+	margin-left: 0.15rem;
+	border: 1px solid black;
+	font-size: 2rem;
+	cursor: pointer;
+	color: var(--theme-text-color);
+}
+
+.sendButton:hover {
+	background-color: var(--theme-color-2);
 }
 
 .spamProtection {

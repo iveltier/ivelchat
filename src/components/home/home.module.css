@@ -1,3 +1,9 @@
+/*
+../../components/home/home.module.css
+ modular css for home.jsx
+*/
+
+/*home wrapper alignes the menu and the chat verticaly*/
 .homeWrapper {
 	display: flex;
 	align-items: flex-end;
@@ -5,9 +11,4 @@
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-}
-
-.logo {
-	color: black;
-	position: fixed;
 }
