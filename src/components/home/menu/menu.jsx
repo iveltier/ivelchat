@@ -19,7 +19,7 @@ function Menu({
 	setCurrentBot,
 }) {
 	const [botList, setBotList] = useLocalStorage("botList", [
-		{ name: "simpleChatbot" },
+		{ name: "Intro-Bot" },
 	]);
 	const [searchText, setSearchText] = useState("");
 	const [isAdding, setIsAdding] = useState(false);
