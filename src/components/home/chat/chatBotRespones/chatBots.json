@@ -8,7 +8,7 @@
 				"how are you": "Thanks, I'm fine. How are you?",
 				"default": "Sorry, I'm just a stupid chatbot. Type 'help' for help"
 			},
-			"profilePicture": "walle.jpg",
+			"profilePicture": "r2d2.jpeg",
 			"spinnerKey": 12
 		},
 		"Quote-Bot": {
@@ -25,7 +25,7 @@
 				},
 				"default": "This is a chatbot, who can give you a quote for a choosen topic. Type 'quote + your topic', to get a fitting quote. Type 'list' to see a full list of available topics."
 			},
-			"profilePicture": "smokeCat.jpg",
+			"profilePicture": "Cat.jpg",
 			"spinnerKey": 17
 		},
 		"Dad-Jokes-Bot": {
@@ -39,16 +39,8 @@
 				},
 				"default": "Dad jokes are the best! I wish someone would type 'joke' so I can laught again."
 			},
-			"profilePicture": "basedCat.jpg",
+			"profilePicture": "DadJoke.jpg",
 			"spinnerKey": 9
-		},
-		"simpleChatbot4": {
-			"responses": {
-				"start": "Bye",
-				"hello": "Hello im 4"
-			},
-			"profilePicture": "antifa.svg",
-			"spinnerKey": 30
 		}
 	}
 }
