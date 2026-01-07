@@ -1,3 +1,6 @@
+// ../pages/SettingsPage.jsx
+// SettingsPage gets returned here, for a better overview
+// needed props (e.g. settings )also get returned
 import Settings from "../components/settings/settings.jsx";
 function SettingsPage({
 	baseColor,

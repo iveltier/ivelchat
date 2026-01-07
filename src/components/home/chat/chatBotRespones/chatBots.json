@@ -4,7 +4,6 @@
 			"responses": {
 				"start": "Welcome to ivelchat. Here you can chat with real chat bots. To add a bot, click on 'Add a new bot' on the left side on your screen. You can add every available chatbot. On the menu on the left, you can change the current chatbot. To remove a chatbot, click on the little 'x' near the chatbots name. For further settings, click on the '⚙' - Icon in the top left. If you need further help, type 'help'. Have fun! :D ",
 				"help": "Welcome to ivelchat. Here you can chat with real chat bots. To add a bot, click on 'Add a new bot' on the left side on your screen. You can add every available chatbot. On the menu on the left, you can change the current chatbot. To remove a chatbot, click on the little 'x' near the chatbots name. For further settings, click on the '⚙' - Icon in the top left.  Have fun! :D ",
-				"h": "Welcome to ivelchat. Here you can chat with real chat bots. To add a bot, click on 'Add a new bot' on the left side on your screen. You can add every available chatbot. On the menu on the left, you can change the current chatbot. To remove a chatbot, click on the little 'x' near the chatbots name. For further settings, click on the '⚙' - Icon in the top left.  Have fun! :D ",
 				"hello": "Hello Guest.",
 				"how are you": "Thanks, I'm fine. How are you?",
 				"default": "Sorry, I'm just a stupid chatbot. Type 'help' for help"
@@ -27,12 +26,15 @@
 				"default": "This is a chatbot, who can give you a quote for a choosen topic. Type 'quote + your topic', to get a fitting quote. Type 'list' to see a full list of available topics."
 			},
 			"profilePicture": "smokeCat.jpg",
-			"spinnerKey": 11
+			"spinnerKey": 17
 		},
-		"simpleChatbot3": {
+		"Dad-Jokes-Bot": {
 			"responses": {
-				"start": "fuck you",
-				"hello": "Hello im 3"
+				"start": "Dad jokes are the best! I wish someone would type 'joke' so I can laught again.",
+				"joke": {
+					"action": "fetchJoke"
+				},
+				"default": "Dad jokes are the best! I wish someone would type 'joke' so I can laught again."
 			},
 			"profilePicture": "basedCat.jpg",
 			"spinnerKey": 9

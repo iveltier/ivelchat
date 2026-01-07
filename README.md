@@ -2,8 +2,7 @@
 
 ## inhalte
 
-- neue bots (z.b erklärbär, zufallsachen)
-- mehr actions
+- actions + 1 bot
 
 ## styling
 - favicon
