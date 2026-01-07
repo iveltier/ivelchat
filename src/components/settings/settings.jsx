@@ -1,3 +1,5 @@
+// components/settings/settings.jsx
+// settings page
 import styles from "./settings.module.css";
 import HomepageButton from "./homepageButton/homepageButton.jsx";
 import Logo from "../home/logo/logo.jsx";
@@ -15,11 +17,15 @@ function Settings({
 	currentUserPicture,
 	setCurrentUserPicture,
 }) {
+	// user profile Pictures Src
 	const profilePicturesSrc = "/images/profilePictures/user/";
+	// visible for choose profile Picture window
 	const [visible, setVisible] = useState(false);
 
+	// current time
 	const [time, setTime] = useState(new Date());
 
+	// every 1s update time
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setTime(new Date());
@@ -28,6 +34,7 @@ function Settings({
 		return () => clearInterval(interval);
 	}, []);
 
+	// make the profilePicturesSrc
 	function handleProfilePictureSrc(name) {
 		return profilePicturesSrc + name;
 	}
@@ -51,7 +58,7 @@ function Settings({
 			<Logo />
 			<HomepageButton />
 
-			<h1>Settings</h1>
+			<h1 className={styles.header}>Settings</h1>
 			{visible && (
 				<div className={styles.changeProfilePictureWindow}>
 					<h2 className={styles.changeProfilePictureWindowHeading}>

@@ -1,12 +1,15 @@
-// actions.js
+// components/home/chat/chatbotResponses/actions.js
 // here are functions defined for the chat bot requests
 export const actions = {
+	// flip a coin
 	flipCoin() {
 		return Math.random() < 0.5 ? "You got heads!" : "You got tails!";
 	},
+	// roll a dice
 	dice() {
 		return `You got a ${Math.floor(Math.random() * 6 + 1)}`;
 	},
+	// fetch a quote
 	async fetchQuote(userMsg) {
 		const topic = userMsg.replace(/^(quotes|quote|zitat)\s*/i, "").trim();
 		if (!topic)
@@ -34,6 +37,7 @@ export const actions = {
 			return "Sorry, I couldn’t fetch a quote right now. Try again later.";
 		}
 	},
+	// fetch a dad joke
 	async fetchJoke() {
 		// check api key
 		const key = import.meta.env.VITE_API_NINJAS_KEY;

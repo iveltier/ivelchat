@@ -1,4 +1,4 @@
-h1 {
+.header {
 	color: var(--theme-text-color);
 	text-align: center;
 	font-size: 2rem;
@@ -64,9 +64,6 @@ h1 {
 	border-radius: 15px;
 }
 
-/*.changeProfilePictureButton {
-}*/
-
 .profilePicturesWrapper {
 	text-align: center;
 }
@@ -83,9 +80,6 @@ h1 {
 	transform: scale(1.2);
 }
 
-/* From Uiverse.io by arghyaBiswasDev */
-/* switch
-/* The switch - the box around the slider */
 .switch {
 	font-size: 17px;
 	position: relative;
@@ -101,7 +95,6 @@ h1 {
 	height: 0;
 }
 
-/* The slider */
 .slider {
 	position: absolute;
 	cursor: pointer;

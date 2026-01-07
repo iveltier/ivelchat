@@ -1,3 +1,5 @@
+// components/settings/homepageButton/homepageButton.jsx
+// fixed link to homepage
 import styles from "./homepageButton.module.css";
 import { Link } from "react-router";
 function HomepageButton() {

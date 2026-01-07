@@ -34,6 +34,9 @@
 				"joke": {
 					"action": "fetchJoke"
 				},
+				"another": {
+					"action": "fetchJoke"
+				},
 				"default": "Dad jokes are the best! I wish someone would type 'joke' so I can laught again."
 			},
 			"profilePicture": "basedCat.jpg",

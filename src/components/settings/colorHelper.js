@@ -1,5 +1,7 @@
+// helper to generate a Palette
 import { colord } from "colord";
 
+// generates a palette based on a choosen color
 export function generatePalette(base) {
 	return [
 		base,
@@ -13,27 +15,31 @@ export function generatePalette(base) {
 	];
 }
 
-/* ---------- Text-Farben ---------- */
+// text colors
+// chooses if the text color is better readable when white or black
 export function getTextColor(bg) {
 	return colord(bg).isDark() ? "#ffffff" : "#000000";
 }
 
-/** Subtile Schriftfarbe für Placeholder / Untertitel */
+// sub color
 export function getSubTextColor(bg) {
 	return colord(bg).isDark()
-		? "#a3a3a3" // helles Grau bei dunklem Hintergrund
-		: "#6c6c6c"; // mittel-grau bei hellem Hintergrund
+		? "#a3a3a3" // light gray
+		: "#6c6c6c"; // semi dark gray
 }
 
+// applies the generated palette to global css variables
 export function applyPaletteToCSS(palette) {
 	const root = document.documentElement;
 	palette.forEach((color, i) =>
+		// e.g. var(--theme-color-1)
 		root.style.setProperty(`--theme-color-${i + 1}`, color),
 	);
 
 	const mainText = getTextColor(palette[0]);
 	const subText = getSubTextColor(palette[0]);
 
+	// e.g. color: var(--theme-text-color);
 	root.style.setProperty("--theme-text-color", mainText);
 	root.style.setProperty("--theme-sub-text-color", subText);
 }

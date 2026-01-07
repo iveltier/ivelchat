@@ -1,3 +1,5 @@
+// ../../../components/home/chat/chatMessages.jsx
+// returns the full chatmessage container
 import styles from "./chatMessages.module.css";
 import ChatMessage from "./chatMessage";
 import { useEffect, useRef } from "react";
@@ -9,6 +11,7 @@ function ChatMessages({
 	enable24hFormat,
 }) {
 	const chatMessageRef = useRef(null);
+	// autoscroll
 	useEffect(() => {
 		const containerElem = chatMessageRef.current;
 		if (containerElem) {

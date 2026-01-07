@@ -1,3 +1,5 @@
+// components/login/login.jsx
+// login page
 import { useState } from "react";
 import styles from "./login.module.css";
 import { Link, useNavigate } from "react-router";
@@ -14,17 +16,21 @@ function Login() {
 		);
 	};
 
+	// if true, show spinner
 	const [isLoading, setIsLoading] = useState(false);
 
+	// run spinner 1-2.5s and then navigate home
 	const goHome = () => {
 		setIsLoading(true);
 		setTimeout(
 			() => {
 				navigate("/homepage");
 			},
-			Math.floor(Math.random() * 1000 + 3000),
+			Math.floor(Math.random() * 1000 + 2500),
 		);
 	};
+
+	// if isnt loading then show the login formular
 	if (!isLoading) {
 		return (
 			<>
@@ -54,7 +60,7 @@ function Login() {
 							return as Guest
 						</button>
 					</span>
-					<span>{errorMsg}</span>
+					<span className={styles.error}>{errorMsg}</span>
 				</div>
 			</>
 		);

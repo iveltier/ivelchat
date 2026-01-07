@@ -1,3 +1,5 @@
+// components/register/register.jsx
+// register page
 import React, { useState } from "react";
 import styles from "./register.module.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -5,11 +7,15 @@ import Logo from "../home/logo/logo";
 import loaderGif from "../../assets/loader.gif";
 
 function Register() {
+	// navigate to go to /homepage
 	const navigate = useNavigate();
+
 	const [errorMsg, setErrorMsg] = useState("");
 
+	// if isLoading show spinner, else show register form
 	const [isLoading, setIsLoading] = useState(false);
 
+	// show spinner then go to homepage
 	const goHome = () => {
 		setIsLoading(true);
 		setTimeout(
@@ -20,6 +26,7 @@ function Register() {
 		);
 	};
 
+	// on click btn => handleRegister
 	const handleRegister = () => {
 		setErrorMsg(
 			<>
@@ -31,6 +38,8 @@ function Register() {
 			</>,
 		);
 	};
+
+	// show form if, isnt loading
 	if (!isLoading)
 		return (
 			<>
@@ -64,7 +73,7 @@ function Register() {
 						</Link>
 					</span>
 
-					<div>{errorMsg}</div>
+					<span className={errorMsg}>{errorMsg}</span>
 				</div>
 			</>
 		);

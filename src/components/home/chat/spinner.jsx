@@ -1,4 +1,5 @@
 // spinner for bot message
+// returns a spinner with frames and interval from spinner.json
 import { useEffect, useState } from "react";
 
 function Spinner({ frames, interval }) {

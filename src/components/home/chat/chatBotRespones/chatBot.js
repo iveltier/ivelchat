@@ -1,4 +1,6 @@
-// chatBot
+// components/home/chat/chatBotRespones/chatBot.js
+// manages the given user message and returns the bot response
+
 import { actions } from "./actions.js"; // file with js code for chat bot responses
 import chatBots from "./chatBots.json"; // response JSON for diffrent chat bots with diffrent functions
 export function getBotResponse(message, botName) {

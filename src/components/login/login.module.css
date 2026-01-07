@@ -1,7 +1,7 @@
-body {
-	overflow: hidden;
-}
-
+/*
+* component/login/login.module.css
+* modular css for login.jsx
+* */
 .loginBtn {
 	color: var(--theme-text-color);
 	font-size: 3rem;
@@ -85,4 +85,8 @@ body {
 
 .loader {
 	width: 5vw;
+}
+
+.error {
+	color: var(--theme-color-7);
 }
