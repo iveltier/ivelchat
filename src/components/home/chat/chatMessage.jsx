@@ -1,4 +1,4 @@
-// ../../../components/home/chat/chatMessage.jsx
+// components/home/chat/chatMessage.jsx
 // generates the chatmessage
 import styles from "./chatMessage.module.css";
 import Spinner from "./spinner.jsx";

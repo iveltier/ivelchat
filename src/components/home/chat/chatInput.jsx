@@ -1,4 +1,4 @@
-// ../../../components/home/chat/chatInput.jsx
+// components/home/chat/chatInput.jsx
 // input + send button
 import spinners from "./spinner.json";
 import styles from "./chatInput.module.css";

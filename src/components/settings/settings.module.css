@@ -200,9 +200,14 @@
 	cursor: pointer;
 	box-shadow: 0px 0px 10px var(--theme-sub-text-color);
 	border-radius: 100%;
+	transition: transform 0.4s;
 }
 
 .colorPicker::-webkit-color-swatch {
 	border-radius: 100%;
 	border: none;
+}
+
+.colorPicker:hover {
+	transform: scale(1.2);
 }
