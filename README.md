@@ -2,8 +2,6 @@
 
 ## inhalte
 
-- actions + 1 bot
-
 ## styling
 - favicon
 - responsive design
