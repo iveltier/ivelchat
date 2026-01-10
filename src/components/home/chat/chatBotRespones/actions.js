@@ -9,6 +9,44 @@ export const actions = {
 	dice() {
 		return `You got a ${Math.floor(Math.random() * 6 + 1)}`;
 	},
+	currentTime() {
+		return `${new Date().toLocaleTimeString("en-US", {
+			hour: "2-digit",
+			minute: "2-digit",
+			hour12: false,
+		})} or
+		${new Date().toLocaleTimeString("en-US", {
+			hour: "2-digit",
+			minute: "2-digit",
+			hour12: true,
+		})}`;
+	},
+	songRec() {
+		const songs = [
+			"🎵 'Bohemian Rhapsody' – Queen",
+			"🎵 'Here Comes the Sun' – The Beatles",
+			"🎵 'Good as Hell' – Lizzo",
+			"🎵 'Judas' – Lady Gaga",
+			"🎵 'departure!' – Masatoshi Ono",
+			"🎵 'der, Die, Das' – die Super-duper-Band ",
+			"🎵 'Aperol Spritz' – Vincent Gross",
+			"🎵 'Der Käfer' – Wizo",
+			"🎵 'Credit card debt' – Peter Griffin & Glenn Quagmire",
+			"🎵 'On Top of the World' – Imagine Dragons",
+		];
+		return songs[Math.floor(Math.random() * songs.length)];
+	},
+
+	tellJoke() {
+		const jokes = [
+			"Why are mountains so funny? They’re hill areas.",
+			"I told my wife she was drawing her eyebrows too high. She looked surprised.",
+			"I threw a boomerang a few years ago. I now live in constant fear.",
+			"How do you call a straight boomerang? A stick.",
+			"Parallel lines have so much in common. It's a shame they'll never meet.",
+		];
+		return jokes[Math.floor(Math.random() * jokes.length)];
+	},
 	// fetch a quote
 	async fetchQuote(userMsg) {
 		const topic = userMsg.replace(/^(quotes|quote|zitat)\s*/i, "").trim();
