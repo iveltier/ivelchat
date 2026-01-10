@@ -5,7 +5,6 @@
 - read me schreiben
 
 ## styling
-- favicon
 
 ## javascript
 
