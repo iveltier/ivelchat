@@ -2,9 +2,10 @@
 
 ## inhalte
 
+- read me schreiben
+- extra bot
 ## styling
 - favicon
-- responsive design
 
 ## javascript
 
