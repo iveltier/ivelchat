@@ -45,3 +45,34 @@
 .spamProtection {
 	cursor: not-allowed;
 }
+
+/* responsive design*/
+@media (max-width: 768px) {
+	.messageInput {
+		font-size: 1.5rem;
+		padding: 0.7rem;
+		border-width: 2px;
+	}
+
+	.sendButton {
+		font-size: 1.5rem;
+		padding: 0.7rem 1rem;
+	}
+
+	.messageInputContainer {
+		margin-top: 5px;
+		gap: 0.3rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.messageInput {
+		font-size: 1.2rem;
+		padding: 0.5rem;
+	}
+
+	.sendButton {
+		font-size: 1.2rem;
+		padding: 0.5rem 0.75rem;
+	}
+}

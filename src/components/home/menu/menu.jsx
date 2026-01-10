@@ -11,6 +11,8 @@ import addSymbolWhite from "../../../assets/addSymbolWhite.png";
 import { getTextColor } from "../../settings/colorHelper";
 
 function Menu({
+	menuOpen,
+	setMenuOpen,
 	baseColor,
 	availableBotNames,
 	setBotsMessages,
@@ -86,6 +88,9 @@ function Menu({
 
 	// function to change the current chat
 	function selectBot(newBot) {
+		if (menuOpen) {
+			setMenuOpen(false);
+		}
 		if (!newBot || newBot === currentBot) return;
 
 		// save current chat
@@ -135,103 +140,112 @@ function Menu({
 	// if true then it shows available Bot Names, who havent been added yet
 	// if false it shows available Bot Names, who have been added yet
 	return (
-		<div className={styles.menuContainer}>
-			<div className={styles.searchContainer}>
-				<input
-					ref={inputRef}
-					name="input"
-					className={styles.chatBotInput}
-					type="text"
-					placeholder={isAdding ? "Add a new bot..." : "Search"}
-					value={isAdding ? newBotName : searchText}
-					onChange={(e) => {
-						isAdding ? setNewBotName(e.target.value) : handleSearch(e);
-					}}
-					onKeyDown={handleKeyDown}
-				/>
-			</div>
-			<ul className={styles.chatBotList}>
-				{!isAdding ? (
-					<li
-						className={`${styles.chatBotListItem} ${styles.addBot} ${filteredAvailableBots.length === 0 ? styles.disabled : ""}`}
-						onClick={handleNewBot}
-						title="Add new Bot"
-					>
-						{isTextColorWhite ? (
-							<img
-								src={addSymbolWhite}
-								alt="add sign"
-								className={styles.addSymbol}
-							/>
-						) : (
-							<img
-								src={addSymbolBlack}
-								alt="add sign"
-								className={styles.addSymbol}
-							/>
-						)}
-						<span className={styles.chatBotName}>Add a new bot</span>
-					</li>
-				) : (
-					""
-				)}
-				<div className={styles.listWrapper}>
-					{isAdding
-						? filteredAvailableBots.map((botName) => {
-							const botData = chatBots.bots[botName];
+		<>
+			<button
+				className={styles.menuToggle}
+				onClick={() => setMenuOpen((o) => !o)}
+				title="Menu"
+			>
+				☰
+			</button>
+			<div className={`${styles.menuContainer} ${menuOpen ? styles.open : ""}`}>
+				<div className={styles.searchContainer}>
+					<input
+						ref={inputRef}
+						name="input"
+						className={styles.chatBotInput}
+						type="text"
+						placeholder={isAdding ? "Add a new bot..." : "Search"}
+						value={isAdding ? newBotName : searchText}
+						onChange={(e) => {
+							isAdding ? setNewBotName(e.target.value) : handleSearch(e);
+						}}
+						onKeyDown={handleKeyDown}
+					/>
+				</div>
+				<ul className={styles.chatBotList}>
+					{!isAdding ? (
+						<li
+							className={`${styles.chatBotListItem} ${styles.addBot} ${filteredAvailableBots.length === 0 ? styles.disabled : ""}`}
+							onClick={handleNewBot}
+							title="Add new Bot"
+						>
+							{isTextColorWhite ? (
+								<img
+									src={addSymbolWhite}
+									alt="add sign"
+									className={styles.addSymbol}
+								/>
+							) : (
+								<img
+									src={addSymbolBlack}
+									alt="add sign"
+									className={styles.addSymbol}
+								/>
+							)}
+							<span className={styles.chatBotName}>Add a new bot</span>
+						</li>
+					) : (
+						""
+					)}
+					<div className={styles.listWrapper}>
+						{isAdding
+							? filteredAvailableBots.map((botName) => {
+								const botData = chatBots.bots[botName];
 
-							return (
-								<li
-									key={botName}
-									className={styles.chatBotListItem}
-									style={{ borderLeft: `6px solid ${botData.color}` }}
-									onClick={() => {
-										setBotList([...botList, { name: botName }]);
-										setIsAdding(false);
-										setNewBotName("");
-										setSearchText("");
-									}}
-								>
-									<img
-										src={`/images/profilePictures/bots/${botData.profilePicture}`}
-										alt={botName}
-										className={styles.botProfilePicture}
-									/>
-									<span className={styles.chatBotName}>{botName}</span>
-								</li>
-							);
-						})
-						: filteredBots.map((bot) => {
-							const botData = chatBots.bots[bot.name];
-
-							return (
-								<li
-									key={bot.name}
-									onClick={() => selectBot(bot.name)}
-									className={`${styles.chatBotListItem} ${bot.name === currentBot ? styles.currentBot : ""
-										}`}
-								>
-									<img
-										src={`/images/profilePictures/bots/${botData.profilePicture}`}
-										alt={bot.name}
-										className={styles.botProfilePicture}
-									/>
-									<span className={styles.chatBotName}>{bot.name}</span>
-									<span
-										className={styles.remove}
-										onClick={(e) => {
-											e.stopPropagation();
-											removeBot(bot.name);
+								return (
+									<li
+										key={botName}
+										className={styles.chatBotListItem}
+										style={{ borderLeft: `6px solid ${botData.color}` }}
+										onClick={() => {
+											setBotList([...botList, { name: botName }]);
+											setIsAdding(false);
+											setNewBotName("");
+											setSearchText("");
 										}}
 									>
-										×
-									</span>
-								</li>
-							);
-						})}
-				</div>
-			</ul>
-		</div>
+										<img
+											src={`/images/profilePictures/bots/${botData.profilePicture}`}
+											alt={botName}
+											className={styles.botProfilePicture}
+										/>
+										<span className={styles.chatBotName}>{botName}</span>
+									</li>
+								);
+							})
+							: filteredBots.map((bot) => {
+								const botData = chatBots.bots[bot.name];
+
+								return (
+									<li
+										key={bot.name}
+										onClick={() => selectBot(bot.name)}
+										className={`${styles.chatBotListItem} ${bot.name === currentBot ? styles.currentBot : ""
+											}`}
+									>
+										<img
+											src={`/images/profilePictures/bots/${botData.profilePicture}`}
+											alt={bot.name}
+											className={styles.botProfilePicture}
+										/>
+										<span className={styles.chatBotName}>{bot.name}</span>
+										<span
+											className={styles.remove}
+											onClick={(e) => {
+												e.stopPropagation();
+												removeBot(bot.name);
+											}}
+										>
+											×
+										</span>
+									</li>
+								);
+							})}
+					</div>
+				</ul>
+			</div>
+		</>
 	);
 }
 

@@ -56,3 +56,46 @@
 .monospace {
 	font-family: monospace;
 }
+
+/* responsive */
+@media (max-width: 768px) {
+	.profilePicture {
+		width: 50px;
+		margin: 6px;
+	}
+
+	.chatMessage {
+		max-width: 70vw;
+		font-size: 1rem;
+		padding: 0.5rem;
+	}
+
+	.timestamp {
+		font-size: 0.9rem;
+	}
+
+	.message {
+		font-size: 1.1rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.profilePicture {
+		width: 40px;
+		margin: 4px;
+	}
+
+	.chatMessage {
+		max-width: 75vw;
+		font-size: 0.9rem;
+		padding: 0.4rem;
+	}
+
+	.timestamp {
+		font-size: 0.8rem;
+	}
+
+	.message {
+		font-size: 1rem;
+	}
+}

@@ -1,5 +1,5 @@
 /*
-../../../components/home/logo/logo.module.css
+components/home/logo/logo.module.css
 modular css for logo.jsx
 */
 .logo {
@@ -15,4 +15,17 @@ modular css for logo.jsx
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+	.logo {
+		font-size: 0.9rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.logo {
+		font-size: 0.65rem;
+	}
 }

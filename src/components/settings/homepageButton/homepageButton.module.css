@@ -2,10 +2,10 @@
 * components/settings/homepageButton/homepageButton.modular.css
 * modular css for homepageButton.jsx
 * */
-.settingsLogo {
+.homepageButton {
 	font-size: 2.5rem;
 	color: var(--theme-sub-text-color);
-	position: absolute;
+	position: fixed;
 	top: 10px;
 	left: 10px;
 	background-color: var(--theme-color-5);
@@ -14,7 +14,14 @@
 	transition: transform 0.3s;
 }
 
-.settingsLogo:hover {
+.homepageButton:hover {
 	background-color: var(--theme-color-6);
 	transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+	.homepageButton {
+		padding: 0.4rem 1rem 0.4rem 1rem;
+		font-size: 1.5rem;
+	}
 }

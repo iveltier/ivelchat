@@ -8,6 +8,7 @@ import styles from "./home.module.css";
 import Menu from "./menu/menu.jsx";
 import chatBots from "./chat/chatBotRespones/chatBots.json";
 import { useLocalStorage } from "../../hooks/useLocalStorage.js";
+import { useState } from "react";
 
 function Home({
 	baseColor,
@@ -55,12 +56,18 @@ function Home({
 	const chatMessages = botsMessages[currentBot] ?? [];
 
 	// return the chat, menu, settings-logo and ivelchat-logo
+	const [menuOpen, setMenuOpen] = useState(false);
+
 	return (
 		<>
 			<SettingsLogo />
 			<Logo />
-			<div className={styles.homeWrapper}>
+			<div
+				className={`${styles.homeWrapper} ${menuOpen ? styles.menuOpen : ""}`}
+			>
 				<Menu
+					menuOpen={menuOpen}
+					setMenuOpen={setMenuOpen}
 					baseColor={baseColor}
 					availableBotNames={availableBotNames}
 					setBotsMessages={setBotsMessages}

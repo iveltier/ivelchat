@@ -5,7 +5,7 @@ import { Link } from "react-router";
 function HomepageButton() {
 	return (
 		<Link to="/homepage">
-			<div className={styles.settingsLogo}>⮌</div>
+			<div className={styles.homepageButton}>⮌</div>
 		</Link>
 	);
 }

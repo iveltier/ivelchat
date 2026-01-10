@@ -7,7 +7,7 @@ modular css for settingsLogo.jsx
 .settingsLogo {
 	font-size: 3rem;
 	color: var(--theme-sub-text-color);
-	position: absolute;
+	position: fixed;
 	top: 10px;
 	right: 10px;
 	background-color: var(--theme-color-5);
@@ -20,4 +20,17 @@ modular css for settingsLogo.jsx
 .settingsLogo:hover {
 	background-color: var(--theme-color-6);
 	transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+	.settingsLogo {
+		padding: 0.2rem 0.5rem;
+		font-size: 1.5rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.settingsLogo {
+		font-size: 1.2rem;
+	}
 }

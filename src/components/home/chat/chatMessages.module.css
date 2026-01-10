@@ -13,3 +13,16 @@
 .pushContainer {
 	flex-grow: 1;
 }
+
+/* responsive */
+@media (max-width: 768px) {
+	.chatMessagesContainer {
+		scrollbar-width: none;
+	}
+}
+
+@media (max-width: 480px) {
+	.pushContainer {
+		min-height: 30px;
+	}
+}

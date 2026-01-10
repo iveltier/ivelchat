@@ -90,3 +90,52 @@
 .error {
 	color: var(--theme-color-7);
 }
+
+/* responsive design */
+@media (max-width: 768px) {
+	.container {
+		max-width: 80vw;
+	}
+
+	.heading {
+		font-size: 1.5rem;
+	}
+
+	.registerInput {
+		font-size: 1.3rem;
+		padding: 8px;
+	}
+
+	.registerBtn {
+		font-size: 1.5rem;
+		padding: 8px 32px;
+	}
+
+	.loader {
+		width: 15vw;
+	}
+
+	.span {
+		font-size: 0.75rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.heading {
+		font-size: 1.2rem;
+	}
+
+	.registerInput {
+		font-size: 1.1rem;
+		padding: 6px;
+	}
+
+	.registerBtn {
+		font-size: 1.2rem;
+		padding: 6px 24px;
+	}
+
+	.loader {
+		width: 20vw;
+	}
+}

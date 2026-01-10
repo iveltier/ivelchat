@@ -12,3 +12,10 @@
 	bottom: 0;
 	width: 100%;
 }
+
+/*responsive design*/
+@media (max-width: 768px) {
+	.homeWrapper.menuOpen .appContainer {
+		display: none;
+	}
+}
