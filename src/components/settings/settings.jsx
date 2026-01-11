@@ -68,13 +68,13 @@ function Settings({
 						{[
 							"cookiemonster.jpg",
 							"elmo.jpg",
-							"peter.jpg",
-							"killua.jpg",
-							"patrick.jpg",
-							"sandmann.jpeg",
 							"ernie.jpg",
 							"kadse.jpg",
-							"cute.jpg",
+							"anime.png",
+							"kadse2.jpg",
+							"ente.png",
+							"elephant.png",
+							"defaultw.jpg",
 							"default.jpg",
 						].map((file) => (
 							<img
