@@ -8,7 +8,7 @@ This is a website where you can chat with pre-defined bots. Main features are a 
 
 ## Pages
 
-In-depth explenation of the sites
+In-depth explanation of the sites
 
 ### Login / Register
 
@@ -33,7 +33,7 @@ npm run dev
 
 Open `http://localhost:5137`
 
-## Technisches
+## Technical
 
 To use the bot fully a **API-Key** from [API-Ninjas](https://api-ninjas.com/) is used. Create an `.env` and add your `VITE_API_NINJAS_KEY=apikey`.
 

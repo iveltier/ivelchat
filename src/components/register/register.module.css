@@ -118,6 +118,10 @@
 	.span {
 		font-size: 0.75rem;
 	}
+
+	.error {
+		font-size: 0.75rem;
+	}
 }
 
 @media (max-width: 480px) {
