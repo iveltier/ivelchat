@@ -2,6 +2,7 @@
 
 [flaticon](https://www.flaticon.com/de/kostenlose-icons/sprechblase) erstellt von Freepik 
 [addSymbol](https://icons8.com/icon/UkLBG0sZoWV0/add-male-user) erstellt von Icons8
+[loader](https://pixabay.com/gifs/grey-gradient-loader-loading-9026/)
 
 ## profile pictures bots
 
