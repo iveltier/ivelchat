@@ -1,4 +1,4 @@
-[preview here](https://ivelchat.netflify.app)
+[preview here](ivelchat.netflify.app)
 
 [German version](#ivelchat-german)
 
