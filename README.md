@@ -32,7 +32,7 @@ cd ivelchat
 npm install
 npm run dev
 ```
-
+Be sure to have NodeJS installed
 Open `http://localhost:5137`
 
 ## Technical
@@ -67,7 +67,7 @@ cd ivelchat
 npm install
 npm run dev
 ```
-
+Gehe sicher, dass du NodeJS installiert hast
 Öffne `http://localhost:5137`
 
 ## Technisches
